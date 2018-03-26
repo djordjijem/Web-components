@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="tabComponent">
+    <!-- Sign up -->
+        <div class="tab">
+                <input type="radio" id="tab-1" name="tab-group-1" checked>
+                <label for="tab-1">Sign up</label>
+                
+                <div class="content">
+                    <form action="#">
+                        <div>
+                          <input type="text" id="first_name" name="first_name" required placeholder=" " />
+                          <label for="first_name">First Name</label>
+                        </div>
+                        
+                        <div>
+                          <input type="text" id="last_name" name="last_name" required placeholder=" " />
+                          <label for="last_name">Last Name</label>
+                        </div>
+                        
+                        <div>
+                          <input type="email" id="email" name="email" required placeholder=" " />
+                          <label for="email">Email Address</label>
+                          <div class="requirements">
+                            Must be a valid email address.
+                          </div>
+                        </div>
+        
+                        <div>
+                            <input type="date" id="date-of-birth" name="birth-date" />
+                            <label for="date"></label>
+        
+                        </div>
+                        <div>
+                          <input type="password" id="password" name="password" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+                          <label for="password">Password</label>
+                          <div class="requirements">
+                            Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.
+                          </div>
+                        </div>
+        
+                        <div>
+                        <input type="password" id="confirm-password" name="password" required placeholder=" "/>
+                        <label for="password">Confirm Password</label>
+                        </div>
+                        
+                        <input type="submit" value="Sign Up" /> 
+                  </form>
+                </div> 
+        </div> <!-- Sign up -->
+         
+        <!-- Log in -->
+        <div class="tab">
+                <input type="radio" id="tab-2" name="tab-group-1">
+                <label for="tab-2">Log in</label>
+                
+                <div class="content">
+                        <form action="#">
+                            <div>
+                                <input type="text" id="first_name" name="first_name" required placeholder=" " />
+                                <label for="first_name">First Name</label>
+                              </div>
+                              
+                              <div>
+                                <input type="text" id="last_name" name="last_name" required placeholder=" " />
+                                <label for="last_name">Last Name</label>
+                              </div>
+                              <div>
+                                  <input type="password" id="confirm-password" name="password" required placeholder=" "/>
+                                  <label for="password">Password</label>
+                               </div>
+                               <input type="submit" value="Log in" /> 
+                        </form>
+                </div> 
+        </div> <!-- Log in -->
+      </div>
+</body>
+</html>
+
+
+
