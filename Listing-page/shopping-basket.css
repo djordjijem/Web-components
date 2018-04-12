@@ -15,7 +15,7 @@
     position: relative;
 }
 .heading > .price span{
-    color: rgb(170, 84, 170);
+    color: rgb(224, 77, 77);
     font-size: 1.3em;
 }
 .heading select {
@@ -56,6 +56,20 @@ input[type="submit"] {
 }
 input[type="submit"]:focus {
     outline: 0;
+}
+input[id="keep-shopping"]{
+    color: rgb(170, 84, 170);
+    background-color: #fff;
+}
+input[id="total-price"]{
+    width: 80px;
+    height: 40px;
+    color: rgb(224, 77, 77);
+    font-size: 1.6em;
+}
+input[id="total-price"] + label {
+    margin-right: 20px;
+    color:  color: rgb(224, 77, 77);
 }
 
 
