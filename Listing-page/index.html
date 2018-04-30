@@ -6,10 +6,95 @@
     <title>Shoping Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/shopping-basket.css" />
 </head>
 <body id="body">
     <div class="container">
-       <h1>hi</h1>
+       <h1>Shopping page</h1>
+       <div class="wrapper__sections">
+            <section class="products">
+            <div class="container__products">
+            <img src="images/ankle-boots-3053473_640.jpg" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button id="add--to--basket">Add to basket</button>
+            </div>
+
+            </div>
+            </section> <!-- products-->
+
+            <section class="products">
+            <div class="container__products">
+            <img src="images/car-3251609_640.jpg" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button id="add--to--basket">Add to basket</button>
+            </div>
+            <button class="add--to--basket"></button>
+            </div>
+            </section> <!-- products-->
+
+            <section class="products">
+            <div class="container__products">
+            <img src="images/chevi.png" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button class="add--to--basket">Add to basket</button>
+            </div>
+            </div>
+            </section> <!-- products-->
+
+            <section class="products">
+            <div class="container__products">
+            <img src="images/motor-scooter-917668_640.jpg" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button class="add--to--basket">Add to basket</button>
+            </div>
+            </div>
+            </section> <!-- products-->
+
+            <section class="products">
+            <div class="container__products">
+            <img src="images/glass-glass-3235980_640.png" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button class="add--to--basket">Add to basket</button>
+            </div>
+            </div>
+            </section> <!-- products-->
+
+            <section class="products">
+            <div class="container__products">
+            <img src="images/shoes-3029728_640.jpg" alt="">
+            <div class="description">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni magnam saepe amet aut consectetur sed temporibus veritatis iure adipisci.</p>
+            <button class="add--to--basket">Add to basket</button>
+            </div>
+            </div>
+            </section> <!-- products-->
+       </div>   <!--Wrapper-->
+       
+                      
+        <section class="shopping__cart">
+            <button id="show-hide-cart">Show/Hide Shopping Cart</button>
+            <div id="content__in__the__cart">
+
+            </div>
+            <form action="">
+                <input type="text" name="promo-code">
+                <label for="promo-code">Enter promo code</label>
+                <input type="button" name="button" value="Buy">
+                
+            </form>
+        </section> <!--Shopping cart-->
    
     </div><!-- Container -->     
     <script src="js/main.js"></script>
