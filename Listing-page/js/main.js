@@ -36,16 +36,40 @@ var shoes_btn = document.getElementById('add--shoes--basket');
         priceElement.appendChild(priceValue);
        
 
-        dupNode.children[0].children[1].appendChild(priceValue);
+        dupNode.children[0].children[1].appendChild(priceElement);
         dupNode.children[0].children[1].appendChild(promoCode);
         dupNode.children[0].children[1].appendChild(label);
        
         dupNode.children[0].children[1].appendChild(newBtn);
         cart_content.appendChild(dupNode);
-       
+         
+        select.addEventListener('change', function(e){
+        
+            var option_value = event.target.value;
+            var numberValue = Number(option_value.replace(/[^0-9\.]+/g,""));
+            var getPriceEl = document.querySelector('.productPrice');
+            var getPriceValue = getPriceEl.innerHTML;
+           
+            var excludeDollarSign = getPriceValue.substring(0,3);
+            var getPriceNumber = Number(excludeDollarSign.replace(/[^0-9\.]+/g,""));
+            
+            console.log(getPriceEl)
+            
+            
+           if(numberValue === 0){
+            removeFromCart()
+        }else{
+            getPriceEl.innerHTML = '';
+            var priceValue = getPriceNumber*numberValue + '$'
+            getPriceEl.innerHTML = priceValue;
+        }
+          
+           
+        },false);
+
         var removeButton = dupNode.children[0].children[1].lastElementChild;
 
-        function removeFromCart(e){
+        function removeFromCart(){
             dupNode.parentNode.removeChild(dupNode);
         }
 
