@@ -17,6 +17,9 @@ h1 {
     width: 60%;
     float: left;
 }
+#category {
+    opacity: 0;
+}
 .products {
     border: 1px solid purple;
     border-radius: 5px;
@@ -49,6 +52,10 @@ h1 {
 .shopping__cart {
     width: 35%;
     float: right;
+}
+.productPrice {
+    color: purple;
+    font-size: 1.6em;
 }
 
 
