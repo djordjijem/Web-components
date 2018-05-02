@@ -47,8 +47,20 @@ var shoes_btn = document.getElementById('add--shoes--basket');
         
         //add value of item in the arr,used 100 for every,just //for example and clarity
         priceArr.push(100);
-
-            select.addEventListener('change', function(e){
+        total__price.innerHTML = '';
+        if(priceArr.length > 0){
+            let totalPriceValue = priceArr.reduce(function(acc,next){
+                return acc + next;
+            },0);
+            total__price.innerHTML = totalPriceValue + '$';
+        }else {
+            total__price.innerHTML = '';
+         }
+         var currentPrice = priceArr[priceArr.length - 1];
+         console.log(currentPrice);
+         console.log(priceArr);
+               
+        select.addEventListener('change', function(e){
         
                 var option_value = e.target.value;
              
@@ -59,38 +71,43 @@ var shoes_btn = document.getElementById('add--shoes--basket');
                
                 var excludeDollarSign = getPriceValue.substring(0,3);
                 var getPriceNumber = Number(excludeDollarSign.replace(/[^0-9\.]+/g,""));
-                
-                
-               
-                
-                
+
+                var priceIndex = priceArr.indexOf(currentPrice);
+                    
                if(numberValue === 0){
+                getPriceEl.innerHTML = '';
                 removeFromCart();
-               var index = priceArr.indexOf(100);
-                  if(index > -1){
-                      priceArr.splice(index,1);
-                  }
-                 
+                priceArr.splice(priceIndex, 1); 
             }else{
                 getPriceEl.innerHTML = '';
-                var priceValue = getPriceNumber*numberValue + '$'
-                getPriceEl.innerHTML = priceValue;
-                var index = priceArr.indexOf(100);
-                  if(index > -1){
-                      priceArr.splice(index,1);
-                      priceArr.push(100*numberValue);
-                  }
-            }
-              console.log(priceArr);
-               
-            },false);
-       
-       
+                priceArr.splice(priceIndex, 1, currentPrice*numberValue);
 
+                var priceValue = priceArr[priceArr.indexOf(currentPrice*numberValue)];
+                getPriceEl.innerHTML = priceValue + '$';
+               
+             }
+             total__price.innerHTML = '';
+             if(priceArr.length > 0){
+                let totalPriceValue = priceArr.reduce(function(acc,next){
+                    return acc + next;
+                },0);
+                total__price.innerHTML = totalPriceValue + '$';
+             } else {
+                total__price.innerHTML = '';
+             }
+            
+            
+         },false);
+       
+        console.log(priceArr)
         var removeButton = dupNode.children[0].children[1].lastElementChild;
 
         function removeFromCart(){
             dupNode.parentNode.removeChild(dupNode);
+            let totalPriceValue = priceArr.reduce(function(acc,next){
+                return acc + next;
+            },0);
+            total__price.innerHTML = totalPriceValue - priceArr[priceArr.length - 1] + '$';
         }
 
         removeButton.addEventListener('click', removeFromCart);
@@ -103,17 +120,3 @@ chevi_btn.addEventListener('click', addNewElement, false);
 scooter_btn.addEventListener('click', addNewElement, false);
 glass_btn.addEventListener('click', addNewElement, false);
 shoes_btn.addEventListener('click', addNewElement, false);
- 
-    
-var abc = [1,2,3,4];
-var index = abc.indexOf(2);
-if(index > -1){
-    abc.splice(index,1);
-}
-
-
-   var aaa = abc.reduce(function(acc,edd){
-       return acc + edd;
-   },0)
-
-   console.log(aaa)
