@@ -1,5 +1,8 @@
 var cart_content = document.getElementById('content__in__the__cart');
+var show_content = document.querySelector('.all_cart_content');
+var show_content_btn = document.getElementById('show-hide-cart');
 var total__price = document.getElementById('totalPrice');
+var promo_code_input = document.getElementById('promo-code');
 //create arr for the total prices
 var priceArr = [];
 //GET BUTTONS
@@ -13,13 +16,28 @@ var shoes_btn = document.getElementById('add--shoes--basket');
 var ancestorShoesId = document.getElementById('shoes').id;
 var ancestorBootsId = document.getElementById('boots').id;
 
+
 var promo_code_shoes = 'BIGSALE';
 var promo_code_one_product = 'WELOVECODING';
 var promo_code_for_all_products = 'SUPERSALE';
+var message = document.createElement('p');
+var text = document.createTextNode('SUCCESSFUL');
+message.appendChild(text);
+message.style.color = 'green';
 
+show_content.style.opacity = '0';
+show_content_btn.addEventListener('click', function(e){
+    if(show_content.style.opacity === '0'){
+        show_content.style.opacity = '1';
+    }else{
+        show_content.style.opacity = '0';
+    }
+});
 
     function addNewElement() {
-        
+
+        show_content.style.opacity = '1';
+
         var parentElement = this.parentNode.parentNode.parentNode; 
         var dupNode = parentElement.cloneNode(true);
         
@@ -97,6 +115,7 @@ var promo_code_for_all_products = 'SUPERSALE';
                 total__price.innerHTML = '';
              }
          },false); 
+         
         var removeButton = dupNode.children[0].children[1].lastElementChild;
 
         function removeFromCart(){
@@ -119,7 +138,9 @@ var promo_code_for_all_products = 'SUPERSALE';
 
         removeButton.addEventListener('click', removeFromCart);
        
-        //Get Promotion only for shoes and snickers with "BIGSALE" code
+        //Get 15% off for the shoes and snickers with "BIGSALE" code,use one time
+       let compareArr = new Object(priceArr[0]);
+       
         promoCode.addEventListener('input', function (e) {
 
             let ancestor = this.parentElement.parentElement.parentElement;
@@ -127,17 +148,65 @@ var promo_code_for_all_products = 'SUPERSALE';
             let getPrice = ancestor.children[0].children[1].children[3].innerHTML.split('$')[0];
             let getPriceNumber = Number(getPrice.replace(/[^0-9\.]+/g,""));
             let comparePrices = getPriceNumber;
-            //POTREBNO je uporediti cijenu poslije snizenja sa cijenom u arraju,kako bi se sprijecilo dvostruko snizenje (unosenje koda)
+            let indexPrice = priceArr.indexOf(getPriceNumber);
+            let totalPriceValue = priceArr.reduce(function(acc,next){
+                return acc + next;
+            },0);
+            
             if(ancestor.id === ancestorShoesId && this.value === promo_code_shoes){
+
                 getPriceContainer.innerHTML = '';
+                priceArr.splice(indexPrice, 1, getPriceNumber*0.85);
                 getPriceContainer.innerHTML = getPriceNumber * 0.85 + '$';
-                   
+                promoCode.parentElement.replaceChild(message, promoCode);
+                total__price.innerHTML = '';
+                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
+                promo_code_one_product = 'aabbcceedd';
+                promo_code_shoes = 'aabbcceedd';
+                promo_code_for_all_products = 'aabbcceedd';
             }else if(ancestor.id === ancestorBootsId && this.value === promo_code_shoes){
+
                 getPriceContainer.innerHTML = '';
-                getPriceContainer.innerHTML = getPriceNumber * 0.85 + '$';
+                priceArr.splice(indexPrice, 1, getPriceNumber*0.85);
+                getPriceContainer.innerHTML = getPriceNumber * 0.85 + '$'; 
+                promoCode.parentElement.replaceChild(message, promoCode);
+                total__price.innerHTML = '';
+                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
+                promo_code_one_product = 'aabbcceedd';
+                promo_code_shoes = 'aabbcceedd';
+                promo_code_for_all_products = 'aabbcceedd';
+                //get 10% off on a car,use one time
+            }else if(this.value === promo_code_one_product){
+
+                getPriceContainer.innerHTML = '';
+                priceArr.splice(indexPrice, 1, getPriceNumber*0.90);
+                getPriceContainer.innerHTML = getPriceNumber * 0.90 + '$'; 
+                promoCode.parentElement.replaceChild(message, promoCode);
+                total__price.innerHTML = '';
+                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.90 + 'S';
+                promo_code_one_product = 'aabbcceedd';
+                promo_code_shoes = 'aabbcceedd';
+                promo_code_for_all_products = 'aabbcceedd';
             }
-          });
-    }
+          },false);
+           // get 5% off for complete order,use once
+          promo_code_input.addEventListener('input', function (event) {
+           
+            if(this.value === promo_code_for_all_products){
+        
+                let totalPriceValue = priceArr.reduce(function(acc,next){
+                    return acc + next;
+                },0);
+                total__price.innerHTML = '';
+                total__price.innerHTML = totalPriceValue * 0.95 + '$';
+                promo_code_one_product = 'aabbcceedd';
+                promo_code_shoes = 'aabbcceedd';
+                promo_code_for_all_products = 'aabbcceedd';
+            }
+        },false);
+
+              
+    }//Add new el function
 
 boots_btn.addEventListener('click', addNewElement, false);
 car_btn.addEventListener('click', addNewElement, false);
