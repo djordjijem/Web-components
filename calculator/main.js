@@ -19,13 +19,14 @@ var seven = document.querySelector('.seven'),
     result = document.querySelector('.result span'),
     open_br = document.querySelector('.open-br'),
     close_br = document.querySelector('.close-br');
-    
+
+var myBtns = [];
+myBtns.push(seven,eight,nine,zero,one,two,three,four,five,six,minus,plus,dot,multiplication,division,getRoot,open_br,close_br);
+  
  var eraseContent = document.querySelector('.C'),
      delOne = document.querySelector('.del'),
      equals = document.querySelector('.equals');
      
- 
- 
 function getElement(){
     var text = document.createTextNode(this.textContent);
     count.appendChild(text);
@@ -57,28 +58,11 @@ function getProcent(){
     count.appendChild(text);
 }
 
-/* ADD Events and functionality */
-one.addEventListener('click', getElement);
-two.addEventListener('click', getElement);
-three.addEventListener('click', getElement);
-four.addEventListener('click', getElement);
-five.addEventListener('click', getElement);
-six.addEventListener('click', getElement);
-seven.addEventListener('click', getElement);
-eight.addEventListener('click', getElement);
-nine.addEventListener('click', getElement);
-zero.addEventListener('click', getElement);
-minus.addEventListener('click', getElement);
-plus.addEventListener('click', getElement);
-dot.addEventListener('click', getElement);
-percentage.addEventListener('click', getProcent);
-multiplication.addEventListener('click', getElement);
-division.addEventListener('click', getElement);
-getRoot.addEventListener('click', getElement);
-open_br.addEventListener('click',getElement);
-close_br.addEventListener('click',getElement);
+for(let i = 0; i < myBtns.length; i++){
+    myBtns[i].addEventListener('click', getElement);
+}
 delOne.addEventListener('click', delChar);
 eraseContent.addEventListener('click', eraseEl);
 equals.addEventListener('click', getResult);
-
+percentage.addEventListener('click', getProcent);
 
