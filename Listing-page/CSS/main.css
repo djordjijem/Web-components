@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgb(223, 181, 210);
+}
+h1 {
+    margin: 20px;
+}
+.container {
+    max-width: 90%;
+    margin: auto;
+}
+.wrapper__sections {
+    width: 60%;
+    float: left;
+}
+#category {
+    opacity: 0;
+}
+.products {
+    border: 1px solid purple;
+    border-radius: 5px;
+    margin: 10px;
+    float: left;
+    padding: 20px;
+    background-color: white;
+}
+.products img {
+    width: 40%;
+    height: 40%;
+   float: left;
+}
+
+.description h3 {
+    margin: 20px;
+    font-size: 1.6em;
+}
+.description button {
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: purple;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/*SHOPPING CART*/
+.shopping__cart {
+    width: 35%;
+    float: right;
+}
+.productPrice {
+    color: purple;
+    font-size: 1.6em;
+}
+
+
+
