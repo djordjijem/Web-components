@@ -4,5 +4,43 @@
     padding: 0;
 }
 .wrapper {
-    width: 30  
+    width: 30%;
+    border: 1px solid black; 
+    padding: 8px; 
+    border-radius: 5px;
+    margin: 20px;
+}
+.inner-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.tabs {
+    border: 1px solid black;
+    margin: 2px;
+}
+.heading {
+    color: rgb(31, 30, 30);
+    background-color: rgb(218, 85, 85);
+    font-weight: 600;
+    opacity: 0.9;
+    padding: 10px;
+}
+
+.inner-wrapper .content {
+    padding: 10px 10px 50px 10px;
+    display: none;
+}
+.inner-wrapper .content h3 {
+    margin: 10px 0 10px;
+}
+.inner-wrapper .content ul {
+    list-style: none;
+    margin: 10px;
+}
+.active {
+    color: rgb(248, 239, 239);
+    background-color: rgb(168, 28, 28);
+}
+.tabs > .active ~ .content {
+    display: block;
 }
