@@ -16,6 +16,7 @@
 
      btn.forEach(function (el){  
         el.addEventListener('click' , function(e){
+            
          let btnOne = this.parentElement.parentElement.children[0].children[0];
          let btnTwo = this.parentElement.parentElement.children[1].children[0];
          let btnThree = this.parentElement.parentElement.children[2].children[0];
