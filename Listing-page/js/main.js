@@ -33,16 +33,27 @@ show_content_btn.addEventListener('click', function(e){
         show_content.style.opacity = '0';
     }
 });
+
+function createElement(){
+     //get container from CLICKED product
+     var parentElement = this.parentNode.parentNode.parentNode;
+       //clone continer 
+       var dupNode = parentElement.cloneNode(true);
+        //get select el from cloned container
+        var select = dupNode.children[0].children[1].children[0];
+        return dupNode;
+}
     //AddNewEl function
     function addNewElement() {
 
         show_content.style.opacity = '1';
         //get container from CLICKED product
-        var parentElement = this.parentNode.parentNode.parentNode;
+        //var parentElement = this.parentNode.parentNode.parentNode;
         //clone continer 
-        var dupNode = parentElement.cloneNode(true);
+       // var dupNode = parentElement.cloneNode(true);
         //get select el from cloned container
-        var select = dupNode.children[0].children[1].children[0];
+        //var select = dupNode.children[0].children[1].children[0];
+        createElement();
         select.style.opacity = '1';
         //get ADD TO BASKET btn and remove it from cloned el
         var add_to_basket_btn = dupNode.children[0].children[1].lastElementChild;
