@@ -5,8 +5,9 @@
  
   heading.forEach(function(el){
       el.addEventListener('click', function(e){
-        let active = document.querySelector('.active');
-        active.classList.remove('active');  
+        let parent = this.parentElement.parentElement;
+        let active = parent.querySelectorAll('.active');
+        active[0].classList.remove('active'); 
         this.classList.add('active');   
       });
   });
