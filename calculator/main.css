@@ -36,22 +36,22 @@ html,body {
     height: 35%;
     position: relative;
 }
-.screen .count {
+#count {
     position: absolute;
     right: 10%;
     top: 15%;
+    color: #b4f8b4;
+    font-size: 1.6em;
 }
-.screen .count span {
-    font-size: 2em;
-}
-.screen .result {
+
+#result {
     position: absolute;
     right: 20%;
     bottom: 15%;
+    font-size: 3em;
+    color: #b4f8b4;
 }
-.screen .result span {
-    font-size: 4.3em;
-}
+
 
 /*buttons*/
 .buttons {
@@ -67,6 +67,12 @@ html,body {
     border-bottom: 3px solid rgb(26, 25, 25);
 }
 .btn {
+    position: absolute;
+    text-align: center;
+    font-size: 2.3em;
+    padding: 0.7em;
+}
+.special {
     position: absolute;
     text-align: center;
     font-size: 2.3em;
@@ -163,6 +169,10 @@ span:hover {
      border-bottom: 3px solid rgb(26, 25, 25);
  }
  .equals {
+    position: absolute;
+    text-align: center;
+    font-size: 2.3em;
+    padding: 0.7em;
      right: 0;
      height: 200%;
      width: 20%;
@@ -174,13 +184,7 @@ span:hover {
      background: -o-linear-gradient(0deg ,#135729, #82F382);
      background: linear-gradient(0deg ,#135729, #82F382);
  }
- .equals span {
-     font-size: 1.7em;
-     color : rgb(206, 204, 204);
- }
- .equals span:hover {
-     color: rgb(250, 250, 250);
- }
+ 
  
  /*second line*/
 

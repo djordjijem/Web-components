@@ -1,55 +1,27 @@
-var seven = document.querySelector('.seven'),
-    eight = document.querySelector('.eight'),
-    nine = document.querySelector('.nine'),
-    zero = document.querySelector('.zero'),
-    one = document.querySelector('.one'),
-    two = document.querySelector('.two'),
-    three = document.querySelector('.three'),
-    four = document.querySelector('.four'),
-    five = document.querySelector('.five'),
-    six = document.querySelector('.six'),
-    count = document.querySelector('.count span'),
-    minus = document.querySelector('.subtraction'),
-    plus = document.querySelector('.addition'),
-    dot = document.querySelector('.dot'),
-    percentage = document.querySelector('.percentage'),
-    multiplication = document.querySelector('.multi'),
-    division = document.querySelector('.division'),
-    getRoot = document.querySelector('.CE'),
-    result = document.querySelector('.result span'),
-    open_br = document.querySelector('.open-br'),
-    close_br = document.querySelector('.close-br');
-
-var myBtns = [];
-myBtns.push(seven,eight,nine,zero,one,two,three,four,five,six,minus,plus,dot,multiplication,division,getRoot,open_br,close_br);
-  
- var eraseContent = document.querySelector('.C'),
-     delOne = document.querySelector('.del'),
-     equals = document.querySelector('.equals');
-     
+var btn = document.querySelectorAll('.btn');
+var result = document.getElementById('result');
+var count = document.getElementById('count');
+var equals = document.getElementById('equals');
+var percentage = document.getElementById('percentage');
+var ce = document.getElementById('CE');
+var del = document.getElementById('del');
+ 
 function getElement(){
-    var text = document.createTextNode(this.textContent);
-    count.appendChild(text);
-    result.innerHTML = ''; 
+   count.innerText += this.textContent;
+   result.innerHTML = '';
 }
 function eraseEl(){
-    count.innerHTML = '';
-    result.innerHTML = '';
+    count.innerText = '';
+    result.innerText = '';
 }
 function getResult() {
-
-    var content = count.innerHTML;
-    var score = document.createTextNode(eval(content));
-
-    result.appendChild(score);
-    count.innerHTML = '';
+    result.innerText += eval(count.innerText);
+    count.innerText = '';
 }
 function delChar(){
-
     var content = count.textContent;
     var res = document.createTextNode(content.substr(0,
     content.length - 1));
-
     count.innerHTML = '';
     count.appendChild(res);
 }
@@ -57,12 +29,11 @@ function getProcent(){
     var text = document.createTextNode('*(1/100)');
     count.appendChild(text);
 }
-
-for(let i = 0; i < myBtns.length; i++){
-    myBtns[i].addEventListener('click', getElement);
-}
-delOne.addEventListener('click', delChar);
-eraseContent.addEventListener('click', eraseEl);
+btn.forEach(function(el){
+    el.addEventListener('click', getElement);
+});
 equals.addEventListener('click', getResult);
+del.addEventListener('click', delChar);
+ce.addEventListener('click', eraseEl);
 percentage.addEventListener('click', getProcent);
 

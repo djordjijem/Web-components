@@ -12,19 +12,19 @@
     <div class="container">
         <div class="calculator">
             <div class="screen">
-               <div class="count">
-                  <span></span>
+               <div id="count">
+                  
                </div>
-               <div class="result">
-                      <span></span>
+               <div id="result">
+                    
                </div>
             </div> <!-- Screen -->
             <div class="buttons">
                 <div class="first-line">
-                        <div class="C btn first-btn">
+                        <div class="C special first-btn" id="CE">
                            <span>C</span>
                             </div>
-                            <div class="CE btn first-btn">
+                            <div class="CE btn first-btn" >
                                     <span>Math.sqrt</span>
                             </div>
                             <div class="division btn first-btn">
@@ -39,7 +39,7 @@
                          <div class="close-br btn first-btn">
                             <span>)</span>
                      </div>
-                             <div class="del btn first-btn">
+                             <div class="del special first-btn" id="del">
                                     <span>del</span>
                              </div>
                 </div> <!-- first line -->
@@ -59,12 +59,12 @@
                         <div class="btn seven second-btn one"><span>1</span></div>
                         <div class="btn eight second-btn two"><span>2</span></div>
                         <div class="btn nine second-btn three"><span>3</span></div>
-                        <div class="btn equals"><span>=</span></div>
+                        <div id="equals" class="equals special" >=</div>
                     </div> <!-- fourth line -->
                 <div class="second-line">
                         <div class="btn seven second-btn zero"><span>0</span></div>
                         <div class="btn eight second-btn dot"><span>.</span></div>
-                        <div class="btn nine second-btn percentage"><span>%</span></div>
+                        <div class="special nine second-btn percentage" id="percentage"><span>%</span></div>
                  </div> <!-- fifth line -->
                
               
