@@ -7,7 +7,7 @@
     width: 100%;
     height: auto;
     border-bottom: 7px solid #D273B0;
-    padding-top: 7px;
+    padding-bottom: 0;
     position: relative;
 }
 #header {
@@ -23,7 +23,7 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    padding: 20px;
+    padding: 22px;
     font-size: 1.4em;
 }
 #header .tabs li a {
@@ -51,6 +51,7 @@
     opacity: 0.9;
     font-size: 1.1em;
     font-weight: 600;
+    float: none;
 }
 #header .search-el > li i {
     padding: 5px;
@@ -141,7 +142,6 @@
 }
 @media (min-width: 601px) and (max-width: 1024px){
     #header .tabs li {
-        padding: 20px;
         font-size: 1.2em;
     }
     .logo li {
@@ -151,10 +151,7 @@
     #header .search-el > li {
         margin-right: -85px;
     }
-    
-    
     #header .search-el > li input {
-
         outline: none;
         padding: 2px;
         font-size: 1em;
@@ -167,8 +164,19 @@
         font-size: 1.2em;
     }
 }
-@media (min-width: 601px) and (max-width: 630px){
-    #header .search-el > li {
-        margin-right: -105px;
+@media (min-width: 601px) and (max-width: 660px){
+    #header .search-el {
+        margin-right: -70px;
+    }
+    #header .search-el > li input {
+        width: 25%;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1124px){
+    #header .tabs {
+        margin-left: 50px;
+    }
+    #header .tabs li {
+        font-size: 1.3em;
     }
 }
