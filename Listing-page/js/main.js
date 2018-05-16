@@ -34,19 +34,13 @@ show_content_btn.addEventListener('click', function(e){
     }
 });
 
-function createElement(el){
-    
-   
-}
+
 function resolvePromoCodes(){
     promo_code_shoes = 'dadadw';
     promo_code_one_product = 'daawdadad';
     promo_code_for_all_products = 'dadwadawda';
  } 
-
-
-
-
+ 
     //AddNewEl function
     function addNewElement() {
 
@@ -103,8 +97,7 @@ function resolvePromoCodes(){
         select.addEventListener('change', function(e){
                 //get string value from selected target,convert it to NUMBER(from string)
                 //get price string,aggain,after changing value of select,and replace it
-                var option_value = e.target.value;
-                var numberValue = Number(option_value.replace(/[^0-9\.]+/g,""));
+                var option_value = e.target.value * 1; //multiple with one so that changes to number (current string)
                 //get price value,on the el BEFORE the change
                 var getPriceEl = dupNode.children[0].children[1].children[3];
                 var getPriceValue = getPriceEl.innerHTML;
@@ -112,15 +105,15 @@ function resolvePromoCodes(){
                 let currentPriceValue = dupNode.children[0].children[1].children[3].innerHTML.split('$')[0];
                 let currentPriceNumberVal = currentPriceValue * 1;
                
-               if(numberValue === 0){
+               if(option_value === 0){
                 removeFromCart();
                }else{  
                 (function (){
                     //find the value BEFORE change,and update it with new value
                     var priceIndex = priceArr.indexOf(currentPriceNumberVal);
                     getPriceEl.innerHTML = '';
-                    priceArr.splice(priceIndex, 1, 100*numberValue);
-                    getPriceEl.innerHTML = 100*numberValue + '$';
+                    priceArr.splice(priceIndex, 1, 100*option_value);
+                    getPriceEl.innerHTML = 100*option_value + '$';
                 })();
              }
              //update total price
@@ -171,36 +164,28 @@ function resolvePromoCodes(){
             let totalPriceValue = priceArr.reduce(function(acc,next){
                 return acc + next;
             },0);
+            function resolvePromoCodePrices(rate){
+                getPriceContainer.innerHTML = '';
+                priceArr.splice(indexPrice, 1, getPriceNumber*rate);
+                getPriceContainer.innerHTML = getPriceNumber * rate + '$';
+                promoCode.parentElement.replaceChild(message, promoCode);
+                total__price.innerHTML = '';
+                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*rate + 'S';
+            }
             //check if the id form THIS ancestor (container) is the needed id (id from target div--ancestorShoesId)
             //check if the input value is promo code value
             if(ancestor.id === ancestorShoesId && this.value === promo_code_shoes){
                //update price,update priceArr
-                getPriceContainer.innerHTML = '';
-                priceArr.splice(indexPrice, 1, getPriceNumber*0.85);
-                getPriceContainer.innerHTML = getPriceNumber * 0.85 + '$';
-                promoCode.parentElement.replaceChild(message, promoCode);
-                total__price.innerHTML = '';
-                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
+               resolvePromoCodePrices(0.85);
                 //after submiting change all other codes,so they can't be used,cus the condition is USE EVERY CODE ONCE
                 resolvePromoCodes();
             }else if(ancestor.id === ancestorBootsId && this.value === promo_code_shoes){
 
-                getPriceContainer.innerHTML = '';
-                priceArr.splice(indexPrice, 1, getPriceNumber*0.85);
-                getPriceContainer.innerHTML = getPriceNumber * 0.85 + '$'; 
-                promoCode.parentElement.replaceChild(message, promoCode);
-                total__price.innerHTML = '';
-                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
+                resolvePromoCodePrices(0.85);
                 resolvePromoCodes();
                 //get 10% off on a car,use one time
             }else if(this.value === promo_code_one_product){
-
-                getPriceContainer.innerHTML = '';
-                priceArr.splice(indexPrice, 1, getPriceNumber*0.90);
-                getPriceContainer.innerHTML = getPriceNumber * 0.90 + '$'; 
-                promoCode.parentElement.replaceChild(message, promoCode);
-                total__price.innerHTML = '';
-                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.90 + 'S';
+                resolvePromoCodePrices(0.90);
                 resolvePromoCodes();
             }
           },false);
