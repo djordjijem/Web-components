@@ -34,26 +34,30 @@ show_content_btn.addEventListener('click', function(e){
     }
 });
 
-function createElement(){
-     //get container from CLICKED product
-     var parentElement = this.parentNode.parentNode.parentNode;
-       //clone continer 
-       var dupNode = parentElement.cloneNode(true);
-        //get select el from cloned container
-        var select = dupNode.children[0].children[1].children[0];
-        return dupNode;
+function createElement(el){
+    
+   
 }
+function resolvePromoCodes(){
+    promo_code_shoes = 'dadadw';
+    promo_code_one_product = 'daawdadad';
+    promo_code_for_all_products = 'dadwadawda';
+ } 
+
+
+
+
     //AddNewEl function
     function addNewElement() {
 
         show_content.style.opacity = '1';
-        //get container from CLICKED product
-        //var parentElement = this.parentNode.parentNode.parentNode;
-        //clone continer 
-       // var dupNode = parentElement.cloneNode(true);
-        //get select el from cloned container
-        //var select = dupNode.children[0].children[1].children[0];
-        createElement();
+      
+        var parentElement = this.parentNode.parentNode.parentNode;
+        
+        var dupNode = parentElement.cloneNode(true);
+       
+        var select = dupNode.children[0].children[1].children[0];
+        
         select.style.opacity = '1';
         //get ADD TO BASKET btn and remove it from cloned el
         var add_to_basket_btn = dupNode.children[0].children[1].lastElementChild;
@@ -82,7 +86,8 @@ function createElement(){
         cart_content.appendChild(dupNode);
         //get the price val,split string on '$' and convert '100' string into NUMBER
         let currentPriceValue = dupNode.children[0].children[1].children[3].innerHTML.split('$')[0];
-        let currentPriceNumberVal = Number(currentPriceValue.replace(/[^0-9\.]+/g,""));
+        let currentPriceNumberVal = currentPriceValue * 1;
+       
         //add value of item in the arr,used 100 for every,just for example and clarity
         priceArr.push(currentPriceNumberVal);
         total__price.innerHTML = '';
@@ -105,7 +110,7 @@ function createElement(){
                 var getPriceValue = getPriceEl.innerHTML;
             
                 let currentPriceValue = dupNode.children[0].children[1].children[3].innerHTML.split('$')[0];
-                let currentPriceNumberVal = Number(currentPriceValue.replace(/[^0-9\.]+/g,""));
+                let currentPriceNumberVal = currentPriceValue * 1;
                
                if(numberValue === 0){
                 removeFromCart();
@@ -139,7 +144,7 @@ function createElement(){
             var getPriceEl = dupNode.children[0].children[1].children[3];
             var getPriceValue = getPriceEl.innerHTML;
             var excludeDollarSign = getPriceValue.substring(0,3);
-            var getPriceNumber = Number(excludeDollarSign.replace(/[^0-9\.]+/g,""));
+            var getPriceNumber = excludeDollarSign * 1;
             let index = priceArr.indexOf(getPriceNumber);
             priceArr.splice(index, 1);
             let totalPriceValue = priceArr.reduce(function(acc,next){
@@ -160,8 +165,8 @@ function createElement(){
             //get the container for THIS el,get the ptices and update the priceArr
             let ancestor = this.parentElement.parentElement.parentElement;
             let getPriceContainer = ancestor.children[0].children[1].children[3];
-            let getPrice = ancestor.children[0].children[1].children[3].innerHTML.split('$')[0];
-            let getPriceNumber = Number(getPrice.replace(/[^0-9\.]+/g,""));
+            let getPrice = getPriceContainer.innerHTML.split('$')[0];
+            let getPriceNumber = getPrice * 1;
             let indexPrice = priceArr.indexOf(getPriceNumber);
             let totalPriceValue = priceArr.reduce(function(acc,next){
                 return acc + next;
@@ -177,9 +182,7 @@ function createElement(){
                 total__price.innerHTML = '';
                 total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
                 //after submiting change all other codes,so they can't be used,cus the condition is USE EVERY CODE ONCE
-                promo_code_one_product = 'aabbcceedd';
-                promo_code_shoes = 'aabbcceedd';
-                promo_code_for_all_products = 'aabbcceedd';
+                resolvePromoCodes();
             }else if(ancestor.id === ancestorBootsId && this.value === promo_code_shoes){
 
                 getPriceContainer.innerHTML = '';
@@ -188,9 +191,7 @@ function createElement(){
                 promoCode.parentElement.replaceChild(message, promoCode);
                 total__price.innerHTML = '';
                 total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.85 + 'S';
-                promo_code_one_product = 'aabbcceedd';
-                promo_code_shoes = 'aabbcceedd';
-                promo_code_for_all_products = 'aabbcceedd';
+                resolvePromoCodes();
                 //get 10% off on a car,use one time
             }else if(this.value === promo_code_one_product){
 
@@ -200,9 +201,7 @@ function createElement(){
                 promoCode.parentElement.replaceChild(message, promoCode);
                 total__price.innerHTML = '';
                 total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*0.90 + 'S';
-                promo_code_one_product = 'aabbcceedd';
-                promo_code_shoes = 'aabbcceedd';
-                promo_code_for_all_products = 'aabbcceedd';
+                resolvePromoCodes();
             }
           },false);
            // get 5% off for complete order,use once
@@ -215,9 +214,10 @@ function createElement(){
                 },0);
                 total__price.innerHTML = '';
                 total__price.innerHTML = totalPriceValue * 0.95 + '$';
-                promo_code_one_product = 'aabbcceedd';
-                promo_code_shoes = 'aabbcceedd';
-                promo_code_for_all_products = 'aabbcceedd';
+               resolvePromoCodes();
+               // promo_code_one_product = 'aabbcceedd';
+               // promo_code_shoes = 'aabbcceedd';
+                //promo_code_for_all_products = 'aabbcceedd';
             }
         },false);
 
