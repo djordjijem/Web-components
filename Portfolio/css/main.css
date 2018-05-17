@@ -6,9 +6,6 @@
 .theme-color {
     background-color: #B55894;
 }
-.container {
-    display: block;
-}
 [class*="col"] {
     float: left;
     padding: 10px;

@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+.container {
+    margin: auto;
+}
 #header {
     width: 100%;
     height: auto;
@@ -64,6 +67,7 @@
 }
 .logo {
     width: 8%;
+    transition: 0.8s;
 }
 .logo li {
     margin-left: 20px;
@@ -75,16 +79,28 @@
     width: 170%;
     height: 65px;
 }
+
+.dropdown-menu {
+    height: 100%;
+    width: 0;
+    overflow-x: hidden;
+    transition: 0.7s;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    z-index: 1;
+    margin-left: -30px;
+    
+}
 .dropdown {
     list-style: none;
-    position: absolute;
-    top: 90px;
-    left: 4%;
-    border: 1px solid black;
+    color: white;
+   
 }
 .dropdown li {
     padding: 7px;
 }
+
 .dropdown li a {
     text-decoration: none;
     color: rgb(39, 39, 36);
@@ -97,7 +113,7 @@
    cursor: pointer;
    color: rgb(238, 230, 230);
    flex: 1;
-   margin-left: 10px;
+   margin-left: 40px;
    align-self: center;
 }
 
@@ -106,6 +122,7 @@
         border-bottom: 0;
         padding-top: 0;
         height: 75px;
+        position: fixed;
     }
     #header .tabs {
         display: none;
@@ -115,14 +132,12 @@
     }
     .logo {
         width: 100px;
-        display: none;
+        margin-left: -140px;
+        
     }
     .logo li {
         width: 60px;
         height: auto;
-    }
-    .dropdown {
-        display: none;
     }
 }
 @media (max-width: 360px){
@@ -133,11 +148,11 @@
     }
 }
 @media(min-width: 601px){
-    .dropdown, #hamburger {
+    .dropdown-menu, #hamburger {
         display: none;
     }
     .logo {
-        display:block;
+        margin-left: 0;
     }
 }
 @media (min-width: 601px) and (max-width: 1024px){
@@ -179,4 +194,7 @@
     #header .tabs li {
         font-size: 1.3em;
     }
+}
+.copyrigth {
+    margin-top: 50px;
 }
