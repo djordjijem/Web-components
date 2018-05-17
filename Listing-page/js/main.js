@@ -16,6 +16,7 @@ var shoes_btn = document.getElementById('add--shoes--basket');
 var ancestorShoesId = document.getElementById('shoes').id;
 var ancestorBootsId = document.getElementById('boots').id;
 
+let dupNode,select,promoCode;
 
 var promo_code_shoes = 'BIGSALE';
 var promo_code_one_product = 'WELOVECODING';
@@ -40,50 +41,57 @@ function resolvePromoCodes(){
     promo_code_one_product = 'daawdadad';
     promo_code_for_all_products = 'dadwadawda';
  } 
+ function createEl(clickedEl){
+
+    show_content.style.opacity = '1';
+    var parentElement = clickedEl.parentNode.parentNode.parentNode;
+
+    dupNode = parentElement.cloneNode(true);
+    select = dupNode.children[0].children[1].children[0];
+    
+    select.style.opacity = '1';
+    //get ADD TO BASKET btn and remove it from cloned el
+    var add_to_basket_btn = dupNode.children[0].children[1].lastElementChild;
+    add_to_basket_btn.parentNode.removeChild(add_to_basket_btn);
+    //create new btn for cloned el,btnTxt,input,input name label,label txt,price el and price val and append it to CLONED el
+    var newBtn = document.createElement("button");
+    var newBtnTxt = document.createTextNode('Remove From Cart');
+    newBtn.appendChild(newBtnTxt);
+    promoCode = document.createElement('input');
+    var promoCodeName = promoCode.setAttribute('name','promocode');
+    var promoCodetype = promoCode.setAttribute('type','text');
+    var label = document.createElement('label');
+    var textForLabel = document.createTextNode('Enter promo code');
+    label.appendChild(textForLabel);
+    label.setAttribute('for','promocode');
+    var priceElement = document.createElement('p');
+    priceElement.classList.add('productPrice');
+    var priceValue = document.createTextNode('100$');
+    priceElement.appendChild(priceValue);
+   
+    dupNode.children[0].children[1].appendChild(priceElement);
+    dupNode.children[0].children[1].appendChild(promoCode);
+    dupNode.children[0].children[1].appendChild(label);
+   
+    dupNode.children[0].children[1].appendChild(newBtn);
+    return dupNode;
+ }
+ 
  
     //AddNewEl function
     function addNewElement() {
-
-        show_content.style.opacity = '1';
-      
-        var parentElement = this.parentNode.parentNode.parentNode;
         
-        var dupNode = parentElement.cloneNode(true);
+        let clickedEl = this;
        
-        var select = dupNode.children[0].children[1].children[0];
-        
-        select.style.opacity = '1';
-        //get ADD TO BASKET btn and remove it from cloned el
-        var add_to_basket_btn = dupNode.children[0].children[1].lastElementChild;
-        add_to_basket_btn.parentNode.removeChild(add_to_basket_btn);
-        //create new btn for cloned el,btnTxt,input,input name label,label txt,price el and price val and append it to CLONED el
-        var newBtn = document.createElement("button");
-        var newBtnTxt = document.createTextNode('Remove From Cart');
-        newBtn.appendChild(newBtnTxt);
-        var promoCode = document.createElement('input');
-        var promoCodeName = promoCode.setAttribute('name','promocode');
-        var promoCodetype = promoCode.setAttribute('type','text');
-        var label = document.createElement('label');
-        var textForLabel = document.createTextNode('Enter promo code');
-        label.appendChild(textForLabel);
-        label.setAttribute('for','promocode');
-        var priceElement = document.createElement('p');
-        priceElement.classList.add('productPrice');
-        var priceValue = document.createTextNode('100$');
-        priceElement.appendChild(priceValue);
+        createEl(clickedEl);
        
-        dupNode.children[0].children[1].appendChild(priceElement);
-        dupNode.children[0].children[1].appendChild(promoCode);
-        dupNode.children[0].children[1].appendChild(label);
-       
-        dupNode.children[0].children[1].appendChild(newBtn);
         cart_content.appendChild(dupNode);
         //get the price val,split string on '$' and convert '100' string into NUMBER
-        let currentPriceValue = dupNode.children[0].children[1].children[3].innerHTML.split('$')[0];
-        let currentPriceNumberVal = currentPriceValue * 1;
+        let currentPriceValue = dupNode.children[0].children[1].children[3].innerHTML.split('$')[0] * 1;
+     
        
         //add value of item in the arr,used 100 for every,just for example and clarity
-        priceArr.push(currentPriceNumberVal);
+        priceArr.push(currentPriceValue);
         total__price.innerHTML = '';
         if(priceArr.length > 0){
             let totalPriceValue = priceArr.reduce(function(acc,next){
@@ -93,6 +101,27 @@ function resolvePromoCodes(){
         }else {
             total__price.innerHTML = '';
          }
+
+         function removeFromCart(){
+            //remove this node from the DOM
+            let itemForRemoval = this.parentElement.parentElement.parentElement;
+            itemForRemoval.parentElement.removeChild(itemForRemoval);
+            //update the price,because it's been removed
+            var getPriceEl = dupNode.children[0].children[1].children[3];
+            var getPriceValue = getPriceEl.innerHTML;
+            var excludeDollarSign = getPriceValue.substring(0,3);
+            var getPriceNumber = excludeDollarSign * 1;
+            let index = priceArr.indexOf(getPriceNumber);
+            priceArr.splice(index, 1);
+            let totalPriceValue = priceArr.reduce(function(acc,next){
+                return acc + next;
+            },0);
+            if(priceArr.length === 0){
+                total__price.innerHTML = 0 + '$';
+            }else{
+                total__price.innerHTML = totalPriceValue + '$';
+            } 
+        }//removeFromCart fn
         //add event listener 'change' for  select element
         select.addEventListener('change', function(e){
                 //get string value from selected target,convert it to NUMBER(from string)
@@ -106,7 +135,8 @@ function resolvePromoCodes(){
                 let currentPriceNumberVal = currentPriceValue * 1;
                
                if(option_value === 0){
-                removeFromCart();
+               dupNode.parentElement.removeChild(dupNode);
+               
                }else{  
                 (function (){
                     //find the value BEFORE change,and update it with new value
@@ -130,25 +160,7 @@ function resolvePromoCodes(){
          
         var removeButton = dupNode.children[0].children[1].lastElementChild;
 
-        function removeFromCart(){
-            //remove this node from the DOM
-            dupNode.parentNode.removeChild(dupNode);
-            //update the price,because it's been removed
-            var getPriceEl = dupNode.children[0].children[1].children[3];
-            var getPriceValue = getPriceEl.innerHTML;
-            var excludeDollarSign = getPriceValue.substring(0,3);
-            var getPriceNumber = excludeDollarSign * 1;
-            let index = priceArr.indexOf(getPriceNumber);
-            priceArr.splice(index, 1);
-            let totalPriceValue = priceArr.reduce(function(acc,next){
-                return acc + next;
-            },0);
-            if(priceArr.length === 0){
-                total__price.innerHTML = 0 + '$';
-            }else{
-                total__price.innerHTML = totalPriceValue + '$';
-            } 
-        }//removeFromCart fn
+       
 
         removeButton.addEventListener('click', removeFromCart);
        
@@ -158,19 +170,18 @@ function resolvePromoCodes(){
             //get the container for THIS el,get the ptices and update the priceArr
             let ancestor = this.parentElement.parentElement.parentElement;
             let getPriceContainer = ancestor.children[0].children[1].children[3];
-            let getPrice = getPriceContainer.innerHTML.split('$')[0];
-            let getPriceNumber = getPrice * 1;
-            let indexPrice = priceArr.indexOf(getPriceNumber);
+            let getPrice = getPriceContainer.innerHTML.split('$')[0] * 1;
+            let indexPrice = priceArr.indexOf(getPrice);
             let totalPriceValue = priceArr.reduce(function(acc,next){
                 return acc + next;
             },0);
             function resolvePromoCodePrices(rate){
                 getPriceContainer.innerHTML = '';
-                priceArr.splice(indexPrice, 1, getPriceNumber*rate);
-                getPriceContainer.innerHTML = getPriceNumber * rate + '$';
+                priceArr.splice(indexPrice, 1, getPrice*rate);
+                getPriceContainer.innerHTML = getPrice * rate + '$';
                 promoCode.parentElement.replaceChild(message, promoCode);
                 total__price.innerHTML = '';
-                total__price.innerHTML = totalPriceValue - getPriceNumber + getPriceNumber*rate + 'S';
+                total__price.innerHTML = totalPriceValue - getPrice + getPriceNumber*rate + 'S';
             }
             //check if the id form THIS ancestor (container) is the needed id (id from target div--ancestorShoesId)
             //check if the input value is promo code value
@@ -206,7 +217,6 @@ function resolvePromoCodes(){
             }
         },false);
 
-              
     }//Add new el function
 
 boots_btn.addEventListener('click', addNewElement, false);

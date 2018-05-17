@@ -21,8 +21,7 @@
          let btnTwo = this.parentElement.parentElement.children[1].children[0];
          let btnThree = this.parentElement.parentElement.children[2].children[0];
          let btnFour = this.parentElement.parentElement.children[3].children[0];
-         let btns = [];
-         btns.push(btnOne, btnTwo, btnThree, btnFour);
+         let btns = [btnOne, btnTwo, btnThree, btnFour];
         
         btns.forEach(function(el){
             el.style.backgroundColor = 'beige';

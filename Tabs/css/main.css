@@ -15,7 +15,7 @@
     float: left;
     position: relative;
   }
-  button {
+  .btn {
     padding: 14px;
     margin: 2px;
     background-color: beige;
@@ -38,4 +38,14 @@
 .content {
   display: none;
   padding: 13px 0 5px 80px;
+}
+@media (max-width: 485px){
+  .tabComponent {
+    margin-left: -5px;
+  }
+  .btn {
+     padding: 3px;
+     margin-top: 20px;
+     
+  }
 }
