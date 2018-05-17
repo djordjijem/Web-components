@@ -82,3 +82,9 @@ form {
     font-size: 1.2rem;
     cursor: pointer;
   }
+  @media (max-width: 600px){
+    .form-for-ship .match-box + label {
+      margin-left: -240px;
+    }
+  }
+  
