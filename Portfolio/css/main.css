@@ -6,10 +6,7 @@
 .theme-color {
     background-color: #B55894;
 }
-[class*="col"] {
-    float: left;
-    padding: 10px;
-}
+
 .col-1 {
     width: 8.333%; 
 }
@@ -45,4 +42,20 @@
 }
 .col-12 {
     width: 100%;
+}
+.main {
+    width: 60%;
+    margin: auto;
+   
+    text-align: center;
+}
+@media(max-width: 600px){
+    .main {
+        width: 80%;
+    }
+}
+
+section {
+    padding: 20px;
+    margin: 50px;
 }

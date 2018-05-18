@@ -37,3 +37,15 @@ let section = document.querySelectorAll('section');
    },false);
 
 })();
+
+//projects
+(function(){
+    "use strict";
+
+var tabs = document.querySelectorAll('.projects-holder li');
+console.log(tabs);
+
+
+
+
+})();
