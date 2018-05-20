@@ -3,8 +3,9 @@
 }
 
 .projects-holder {
-height: 800px;
-margin-top: 50px; 
+height: 650px;
+margin-top: 50px;
+position: relative;
 }
 .tabs-for-projects {
     height: 100%;
@@ -23,6 +24,33 @@ margin-top: 50px;
     overflow-x: hidden;
     position: relative;
   }
+  @media(min-width: 1024px) and (max-width: 1300px){
+    .projects-holder ul li {
+        padding: 20px;
+        font-size: 1.3em;
+        margin-left: 30px;
+    }
+  }
+  @media(min-width: 601px) and (max-width: 900px){
+    .projects-holder ul li {
+        padding: 10px;
+        font-size: 1.1em;
+       
+    }
+  }
+ 
+  @media(min-width: 901px) and (max-width: 1023px){
+    .projects-holder ul li {
+        padding: 15px;
+        font-size: 1.2em;
+        margin-left: 25px;
+    }
+  }
+ 
+  .projects-holder ul li:first-child {
+      background-color: rgb(76, 74, 74,0.9);
+      color: #D961AD;
+  }
   
 .projects-holder-content {
     height: 100%;
@@ -36,16 +64,55 @@ margin-top: 50px;
     top: 0;
     left: 0;
     display: none;
+    background-color: rgb(76, 74, 74,0.9);
 }
 .calculator-holder {
     display: block;
 }
 
-.hover-effect {
-    height: 80%;
-    width: 5px;
+@media(max-width:1024px){
+    .projects-holder-content {
+       height: 500px;  
+    }
+  }
+@media(max-width: 601px){
+    .projects-holder-content {
+        width: 120% !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: -40px;
+    }
+    .projects-holder ul {
+        display: none;
+    }
+    
+}
+.scroll-menu {
+    width: 70%;
+    background-color: rgb(76, 74, 74,0.9);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px;
+    white-space: nowrap;
+    list-style: none;
     position: absolute;
-    right: 5px;
-    top: 10%;
-    background-color: #D961AD;
+    bottom: 71px;
+    left: 10%;
+}
+.scroll-menu li {
+    display: inline-block;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 1.2em;
+    cursor: pointer; 
+}
+.scroll-menu li:first-child {
+    background-color: rgb(76, 74, 74,0.9);
+    color: #D961AD;
+}
+@media(min-width: 601px){
+    .scroll-menu {
+        display: none;
+    }
 }

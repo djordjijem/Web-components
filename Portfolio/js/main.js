@@ -44,8 +44,7 @@ let section = document.querySelectorAll('section');
 
 var projects_content = document.querySelector('.projects-holder-content');    
 var tabs = document.querySelectorAll('.projects-holder li');
-var newDiv = document.createElement('div');
-newDiv.classList.add('.hover-effect');
+
 
 function removeBgColor(){
     tabs.forEach(function(el){
@@ -65,7 +64,6 @@ function removeContent(){
 }
 function setDisplayAndColor(holder){
     projects_content.querySelector(holder).style.display = 'block';
-    projects_content.querySelector(holder).style.backgroundColor = 'rgb(76, 74, 74,0.9)';
 }
 
 tabs.forEach(function(el){
@@ -74,52 +72,43 @@ tabs.forEach(function(el){
       switch(this.innerText){
           case 'Real Calculator':
             removeContent();
-            setDisplayAndColor('calculator-holder');
+            setDisplayAndColor('.calculator-holder');
             removeBgColor();
             setColor(this);
-
-           
           break;
           case 'Non-JS UI Components':
             removeContent();
-            projects_content.querySelector('.non-JS-Components').style.display = 'block';
-            projects_content.querySelector
-            ('.non-JS-Components').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.non-JS-Components');
             removeBgColor();
             setColor(this);
           break;
           case 'Other Projects':
             removeContent();
-            projects_content.querySelector('.other-projects').style.display = 'block';
-            projects_content.querySelector('.other-projects').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.other-projects');
             removeBgColor();
             setColor(this);
           break;
           case 'Forms':
             removeContent();
-            projects_content.querySelector('.forms').style.display = 'block';
-            projects_content.querySelector('.forms').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.forms');
             removeBgColor();
             setColor(this);
           break;
           case 'Web Component':
             removeContent();
-            projects_content.querySelector('.web-component').style.display = 'block';
-            projects_content.querySelector('.web-component').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.web-component');
             removeBgColor();
             setColor(this);
           break;
           case 'Shopping Cart':
             removeContent();
-            projects_content.querySelector('.shopping-cart').style.display = 'block';
-            projects_content.querySelector('.shopping-cart').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.shopping-cart');
             removeBgColor();
             setColor(this);
           break;
           case 'Clock':
             removeContent();
-            projects_content.querySelector('.clock').style.display = 'block';
-            projects_content.querySelector('.clock').style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+            setDisplayAndColor('.clock');
             removeBgColor();
             setColor(this);
           break;
