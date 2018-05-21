@@ -17,45 +17,61 @@
   margin-top: 300px;
   font-size: 1.8em;
 }
-
 .carousel-img-content{
     height: 320px !important;
     position: relative;
 }
-
-.carousel-img-content img {
-    width: 100%;
-    height: 300px;
+.carousel-img-content .project-description {
     cursor: zoom-in;
-   
 }
 .holders-carousel-img .circles {
     margin: 10% 0 0 46%;
+    outline: none;
 }
 .holders-carousel-img .circles i{
-    background-color: white;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: pointer; 
 }
 .active {
     color: black;
 }
-.calculator-two, .used-technology {
-    display: none;
-}
-.calculator-two {
-    display: block;
-}
-.next {
-   position: absolute;
-   left: 400px;
-   overflow: hidden;
-   opacity: 0.2;
-}
-.previous {
+.carousel-img-content .project-description {
+    width: 100%;
+    height: 250px;
     position: absolute;
-    right: 400px;
     top: 0;
-    overflow: hidden;
-    opacity: 0.2;
- }
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project-one {
+    background-image: url(../images/calci.png);
+}
+.project-four {
+    background-image: url(../images/Djordjije-Logo.png);
+}
+.carousel-img-content a {
+    position: absolute;
+    bottom: -380px;
+    text-decoration: none;
+    color: rgb(165, 230, 165);
+}
+.carousel-img-content a:first-child {
+    left: 10px;
+}
+.carousel-img-content a > i {
+   margin-right: 5px;
+    font-size: 1.2em;
+}
+@media(max-width: 1024px){
+    .carousel-img-content a {
+        bottom: -220px;
+    }
+}
+@media(max-width: 400px) {
+    .carousel-img-content a:first-child {
+        left: 0;
+    }
+}
+

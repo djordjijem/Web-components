@@ -12,38 +12,55 @@ let dropdownList = document.querySelectorAll('.dropdown li');
 let section = document.querySelectorAll('section');
 let searchIcon = document.querySelector('.search-el i');
 let closeModal = document.querySelector('.modal span');
+let main = document.querySelector('.main');
+
+function initiateDropdown(marginLeft, width, dropdownMargin, mainMargin){
+    logo.style.marginLeft = marginLeft;
+    dropdown.style.width = width;
+    dropdown.style.marginLeft = dropdownMargin;
+    main.style.marginLeft = mainMargin;
+}
+function changeIcons(current, content){
+    current.innerHTML = '';
+    current.innerHTML = content;
+}
 
     hamburger.addEventListener('click', function(event){
         if(count === 1){
            count = 0;
-           logo.style.marginLeft = '-5px';
-           dropdown.style.width = '100px';
-           dropdown.style.marginLeft = '-10px';
+           initiateDropdown('-5px', '100px', '-10px', '0');
            section.forEach(function(el){
                el.style.marginLeft = '110px';
                el.style.transition = '0.6s';
            });
-           this.innerHTML = '';
-           this.innerHTML += '<i class="fas fa-times"></i>';
+           changeIcons(this, '<i class="fas fa-times"></i>')
         }else {
            count = 1;
-           logo.style.marginLeft = '-130px';
-           dropdown.style.width = '0';
-           dropdown.style.marginLeft = '-30px';
+           initiateDropdown('-130px', '0', '-10px', '40px');
            section.forEach(function(el){
             el.style.marginLeft = '0';
         });
-           this.innerHTML = '';
-           this.innerHTML += '<i class="fas fa-bars"></i>';
+        changeIcons(this, '<i class="fas fa-bars"></i>');
         }
    },false);
+  
+dropdownList.forEach(function (el) {
+    el.addEventListener('click', function(ev){
+        count = 1;
+           initiateDropdown('-130px', '0', '-30px');
+           section.forEach(function(el){
+            el.style.marginLeft = '0';
+        });
+        changeIcons(hamburger, '<i class="fas fa-bars"></i>');
+    })
+  })
 
    searchIcon.addEventListener('click', function(event){
      document.querySelector('.modal').style.display = 'block';
    });
    closeModal.addEventListener('click', function (event){
     document.querySelector('.modal').style.display = 'none';
-     });
+  });
 
 
 })();
@@ -130,20 +147,83 @@ tabs.forEach(function(el){
 });
 
 })();
-
 //carousel
 (function(){
    "use strict";
 
-  let left_arrow = document.querySelector('.left-arrow');
-  let right_arrow = document.querySelector('.right-arrow');
+   let content = document.querySelectorAll('.project-description');
+   let right_arrow = document.querySelector('.right-arrow');
+   let left_arrow = document.querySelector('.left-arrow');
+   let count = 0;
+   let circles = document.querySelectorAll('.circle');
 
+   function clear(){
+      content.forEach(function(el){
+        el.style.display = 'none';
+    });
+    circles.forEach(function (el) {
+        el.style.backgroundColor = 'inherit';
+      })
+   }
+   function start(){
+    clear();
+    content[0].style.display = 'block';
+    circles[0].style.backgroundColor = 'white';
+   }
+   function slideLeft(){
+       clear();
+       content[count-1].style.display = 'block';
+       circles[count-1].style.backgroundColor = 'white';
+       count--; 
+   }
+   function slideRight(){
+       clear();
+       content[count+1].style.display = 'block';
+       circles[count+1].style.backgroundColor = 'white';
+       count++;
+   }
+   left_arrow.addEventListener('click', function(ev){
+        if(count === 0){
+           count = content.length;
+       }
+       slideLeft();
+   },false);
+   right_arrow.addEventListener('click', function(ev){
+    if(count === content.length - 1){
+        count = -1;
+    }
+     slideRight();
+   },false);
+function setCircles(num){
+    content[num].style.display = 'block';
+     circles[num].style.backgroundColor = 'white';
+}
+circles.forEach(function(el){
+    el.addEventListener('click', function(ev){
+        if(el === circles[0]){
+            clear();
+           setCircles(0);
+           count = 0;
+        }
+        if(el === circles[1]){
+            clear();
+           setCircles(1);
+           count = 1;
+        }
+        if(el === circles[2]){
+           clear();
+           setCircles(2);
+           count = 2;
+        }
+        if(el === circles[3]){
+            clear();
+           setCircles(3);
+           count = 3;
+        } 
+    },false);
 
+});
 
-  left_arrow.addEventListener('click', changeLeft, false);
-  right_arrow.addEventListener('click', changeRight, false);
-  
-
-
-
+start();
+   
 })();
