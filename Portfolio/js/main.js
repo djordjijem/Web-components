@@ -10,6 +10,8 @@ let dropdown = document.querySelector('.dropdown-menu');
 let count = 1;
 let dropdownList = document.querySelectorAll('.dropdown li');
 let section = document.querySelectorAll('section');
+let searchIcon = document.querySelector('.search-el i');
+let closeModal = document.querySelector('.modal span');
 
     hamburger.addEventListener('click', function(event){
         if(count === 1){
@@ -35,6 +37,14 @@ let section = document.querySelectorAll('section');
            this.innerHTML += '<i class="fas fa-bars"></i>';
         }
    },false);
+
+   searchIcon.addEventListener('click', function(event){
+     document.querySelector('.modal').style.display = 'block';
+   });
+   closeModal.addEventListener('click', function (event){
+    document.querySelector('.modal').style.display = 'none';
+     });
+
 
 })();
 
@@ -118,5 +128,22 @@ tabs.forEach(function(el){
       }
     },false);
 });
+
+})();
+
+//carousel
+(function(){
+   "use strict";
+
+  let left_arrow = document.querySelector('.left-arrow');
+  let right_arrow = document.querySelector('.right-arrow');
+
+
+
+  left_arrow.addEventListener('click', changeLeft, false);
+  right_arrow.addEventListener('click', changeRight, false);
+  
+
+
 
 })();
