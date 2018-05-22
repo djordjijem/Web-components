@@ -20,7 +20,6 @@
 #header .tabs {
     display: flex;
     width: 50%;
-    
 }
 #header .tabs li {
     display: flex;
@@ -45,7 +44,6 @@
 #header .search-el > li div {
     color: rgb(252, 247, 247); 
 }
-
 #header .search-el > li input {
     border: none;
     border-bottom: 1px solid rgb(230, 223, 223);
@@ -69,6 +67,7 @@
 .logo {
     width: 8%;
     transition: 0.8s;
+    z-index: 999;
 }
 .logo li {
     margin-left: 20px;
@@ -80,27 +79,28 @@
     width: 170%;
     height: 65px;
 }
-
 .dropdown-menu {
     height: 100%;
     width: 0;
     overflow-x: hidden;
     transition: 0.7s;
     position: fixed;
-    top: 70px;
-    left: 10px;
+    left: 0;
     z-index: 1;
-    margin-left: -30px;
-    
+    margin-left: -30px;  
 }
 .dropdown {
-    list-style: none;
+    list-style: none;   
     color: white;
+    overflow: hidden;
+    z-index: 2;
 }
 .dropdown li {
-    padding: 7px;
+    padding: 20px;
 }
-
+.dropdown li:first-child {
+    margin-top: 100px;
+}
 .dropdown li a {
     text-decoration: none;
     color: rgb(39, 39, 36);
@@ -116,7 +116,6 @@
    margin-left: 40px;
    align-self: center;
 }
-
 @media(max-width: 600px){
     #header { 
         border-bottom: 0;
@@ -133,7 +132,6 @@
     .logo {
         width: 100px;
         margin-left: -140px;
-        
     }
     .logo li {
         width: 60px;
@@ -141,7 +139,6 @@
     }
 }
 @media (max-width: 360px){
-   
     .logo li {
         width: 45px;
         height: auto;

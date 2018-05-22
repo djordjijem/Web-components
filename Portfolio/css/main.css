@@ -67,10 +67,15 @@ body {
         width: 100%;
     }
 }
-
+h1 {
+    margin: 20px;
+}
 section {
     padding: 20px;
     margin: 50px;
+}
+hr {
+    opacity: 0.5;
 }
 .modal {
     width: 150%;

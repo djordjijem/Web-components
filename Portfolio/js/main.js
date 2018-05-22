@@ -18,7 +18,7 @@ function initiateDropdown(marginLeft, width, dropdownMargin, mainMargin){
     logo.style.marginLeft = marginLeft;
     dropdown.style.width = width;
     dropdown.style.marginLeft = dropdownMargin;
-    main.style.marginLeft = mainMargin;
+   
 }
 function changeIcons(current, content){
     current.innerHTML = '';
@@ -28,7 +28,7 @@ function changeIcons(current, content){
     hamburger.addEventListener('click', function(event){
         if(count === 1){
            count = 0;
-           initiateDropdown('-5px', '100px', '-10px', '0');
+           initiateDropdown('-5px', '120px', '-10px');
            section.forEach(function(el){
                el.style.marginLeft = '110px';
                el.style.transition = '0.6s';
@@ -36,9 +36,9 @@ function changeIcons(current, content){
            changeIcons(this, '<i class="fas fa-times"></i>')
         }else {
            count = 1;
-           initiateDropdown('-130px', '0', '-10px', '40px');
+           initiateDropdown('-130px', '0', '-10px');
            section.forEach(function(el){
-            el.style.marginLeft = '0';
+            el.style.marginLeft = '50px';
         });
         changeIcons(this, '<i class="fas fa-bars"></i>');
         }
@@ -49,7 +49,7 @@ dropdownList.forEach(function (el) {
         count = 1;
            initiateDropdown('-130px', '0', '-30px');
            section.forEach(function(el){
-            el.style.marginLeft = '0';
+            el.style.marginLeft = '50px';
         });
         changeIcons(hamburger, '<i class="fas fa-bars"></i>');
     })
@@ -62,6 +62,9 @@ dropdownList.forEach(function (el) {
     document.querySelector('.modal').style.display = 'none';
   });
 
+  window.addEventListener('scroll', function(e){
+      dropdown.style.top = '0';
+  });
 
 })();
 

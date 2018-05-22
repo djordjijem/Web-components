@@ -1,0 +1,61 @@
+.stack-chart {
+    width: 80%;
+    height: 20px;
+    margin: 20px auto;
+
+}
+.stack-chart .stack-chart-front {
+    background-color: rgb(194, 70, 70);
+    height: 100%;
+    float: left;
+}
+.stack-chart-back {
+    background-color: rgb(56, 56, 185);
+    height: 100%;
+    float: left;
+}
+.stack-chart span {
+    color: white;
+}
+.stack-chart-front span {
+    float: left;
+}
+.stack-chart-back span {
+    float: right;
+}
+.chart { width: 100%; }
+
+.chart li {
+  border-radius: 4px 4px 0 0; /* Remember vendor prefixes */
+  box-shadow: 0 1px 0 0 rgba(255,255,255,.6) inset; /* Remember vendor prefixes */
+  display: inline-block;
+  height: 125px;
+  padding: 25px 0;
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.chart .axis { 
+  display: none;
+  top: -25px;
+  width: 11%;
+ }
+
+.chart .label {
+  background: #eaeaea;
+  margin: -.6em 0 65px 0;
+}
+
+.chart .percent {
+  font-size: 30px;
+  letter-spacing: -3px;
+  opacity: .4;
+  width: 100%;
+}
+.chart .teal {
+    background: #4ecdc4;
+    background-image: linear-gradient(#76d8d1, #4ecdc4 70%);
+    border: 1px solid #4ecdc4;
+ }
+    
