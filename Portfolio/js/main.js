@@ -230,3 +230,19 @@ circles.forEach(function(el){
 start();
    
 })();
+
+//skills
+(function(){
+    "use strict";
+let skills = document.querySelectorAll('.skills-chart li');
+
+skills.forEach(function(el){
+    el.addEventListener('mouseover', function(ev){
+        this.children[1].classList.toggle('show');
+    },false)
+    el.addEventListener('mouseleave', function(ev){
+        this.children[1].classList.toggle('show');
+    },false)
+});
+
+})();

@@ -126,3 +126,10 @@ hr {
         font-size: 2em;
     }
 }
+footer {
+    display: flex;
+    height: 60px;
+}
+footer div {
+    margin: auto;
+}
