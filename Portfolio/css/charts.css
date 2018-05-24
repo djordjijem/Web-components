@@ -1,78 +1,78 @@
-.stack-chart {
+.skills__chart {
     width: 80%;
     height: 20px;
     margin: 20px auto;
 
 }
-.stack-chart .stack-chart-front {
+.skills__chartFront {
     background-color: #FB5E5D;
     height: 100%;
     float: left;
 }
-.stack-chart-back {
+.skills__chartBack {
     background-color: #4A6FEB;
     height: 100%;
     float: left;
 }
-.stack-chart span {
+.skills__chartSpan {
     color: white;
 }
-.stack-chart-front span {
+.skills__chartFrontSpan {
     float: left;
 }
-.stack-chart-back span {
+.skills__chartBackSpan {
     float: right;
 }
-.front-end-chart {
+.skills__frontEndChart {
     height: 300px;
     border-bottom: 1px solid rgb(167, 163, 163);
     position: relative;
 }
 @media(max-width: 1300px){
-    .front-end-chart {
+    .skills__frontEndChart {
         width: 70% !important;
     }
 }
 @media(max-width: 900px){
-    .front-end-chart {
+    .skills__frontEndChart {
         width: 80% !important;
     }
 }
 @media(max-width: 600px){
-    .front-end-chart {
+    .skills__frontEndChart {
         width: 100% !important;
     }
 }
 @media(max-width: 500px){
-    .front-end-chart {
+    .skills__frontEndChart {
         width: 120% !important;
         margin-left: -40px;
     }
 }
-.front-end-chart h3 {
+.skills__frontEndHeading {
     margin: 50px;
     color: #FB5E5D;
 }
-.front-end-chart ul {
+.skills__expertiseLevel {
     float: left;
     list-style: none;
     height: 250px;
 }
-.front-end-chart li {
+.skills__frontItem {
     text-decoration: none;
 }
-.front-end-chart .expertise-level li{
+.skills__frontItem{
     padding: 15px;
 }
-.front-end-chart .expertise-level li:first-child {
+.skills__frontItem--firstChild {
     margin-top: 10px;
 }
-.front-end-chart .skills-chart {
+.skills__charts {
    display: flex;
    margin-top: 49px;
 }
 
-.front-end-chart .skills-chart li {
+.skills__chartsItem {
     flex: 1;
     margin: 10px;
     height: 100px;
@@ -80,51 +80,51 @@
     margin-top: 79px;
     position: relative;
 }
-.front-end-chart .skills-chart .orange {
+.skills__orange {
     background-color: orange;
     height: 140px;
     margin-top: 39px;
 }
 
-.front-end-chart .skills-chart .blue {
+.skills__blue {
     background-color: blue;
 }
-.front-end-chart .skills-chart .red {
+.skills__red {
     background-color: red;
 }
-.front-end-chart .skills-chart .green {
+.skills__green {
     background-color: green;
     height: 70px;
     margin-top: 109px;
 }
-.front-end-chart .skills-chart .yellow {
+.skills__yellow {
     background-color: yellow;
     height: 60px;
     margin-top: 118px;
 } 
 @media(max-width: 500px){
-    .front-end-chart .skills-chart li{
+    .skills__chartsItem{
        margin-right: 5px;
        margin-left: 5px;
     }
-    .front-end-chart .skills-chart .orange {
+    .skills__orange {
         margin-left: 10px;
     }
    
 }
-.front-end-chart .skills-chart p {
+.skills__chartParagraph {
     position: absolute;
     bottom: -40px;
     transform: rotate(45deg);
 }
 @media(max-width: 400px){
-    .front-end-chart .skills-chart .red p{
+    .skills__chartParagraphRed{
         margin-left: 10px;
     }
 }
 
 
-.skills-chart .popuptext {
+.skills__popuptext {
     visibility: hidden;
     width: 160px;
     background-color: #555;
@@ -138,7 +138,7 @@
     left: 50%;
     margin-left: -80px;
 }   
-.skills-chart .popuptext::after {
+.skills__popuptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -157,7 +157,7 @@
     from {opacity: 0;}
     to {opacity:1 ;}
 }
-.skills-chart .show {
+.skills__charts .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;

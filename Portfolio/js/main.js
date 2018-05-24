@@ -71,8 +71,9 @@ dropdownList.forEach(function (el) {
 (function(){
     "use strict";
 
-var projects_content = document.querySelector('.projects__holderContent'),   
-    tabs = document.querySelectorAll('.projects__listItem');
+var projects_content = document.querySelector('.projects__holderContent'),
+    tabs = document.querySelectorAll('.projects__listItems li');
+ 
 
 
 function removeBgColor(){
@@ -87,7 +88,7 @@ function setColor(el){
 }
 
 function removeContent(){
-    projects_content.querySelectorAll('.projects__holders ').forEach(function(el) {
+    projects_content.querySelectorAll('.projects__holders').forEach(function(el) {
         el.style.display = 'none';
     });
 }
@@ -95,58 +96,61 @@ function setDisplayAndColor(holder){
     projects_content.querySelector(holder).style.display = 'block';
 }
 
-tabs.forEach(function(el){
-    el.addEventListener('click', function(event){
-        
-      switch(this.innerText){
-          case 'Real Calculator':
-            removeContent();
-            setDisplayAndColor('.projects__holders--calculator');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Non-JS UI Components':
-            removeContent();
-            setDisplayAndColor('.projects__holders--non-JS-Components');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Other Projects':
-            removeContent();
-            setDisplayAndColor('.projects__holders--other-projects');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Forms':
-            removeContent();
-            setDisplayAndColor('.projects__holders--forms');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Web Component':
-            removeContent();
-            setDisplayAndColor('.projects__holders--web-component');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Shopping Cart':
-            removeContent();
-            setDisplayAndColor('.projects__holders--shopping-cart');
-            removeBgColor();
-            setColor(this);
-          break;
-          case 'Clock':
-            removeContent();
-            setDisplayAndColor('.projects__holders--clock');
-            removeBgColor();
-            setColor(this);
-          break;
-          default:
-          return false;
-          break;
-      }
-    },false);
-});
+   tabs.forEach(function(el){
+        el.addEventListener('click', function(event){
+            
+          switch(this.innerText){
+              case 'Real Calculator':
+                removeContent();
+                setDisplayAndColor('.projects__holders--calculator');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Non-JS UI Components':
+                removeContent();
+                setDisplayAndColor('.projects__holders--non-JS-Components');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Other Projects':
+                removeContent();
+                setDisplayAndColor('.projects__holders--other-projects');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Forms':
+                removeContent();
+                setDisplayAndColor('.projects__holders--forms');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Web Component':
+                removeContent();
+                setDisplayAndColor('.projects__holders--web-component');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Shopping Cart':
+                removeContent();
+                setDisplayAndColor('.projects__holders--shopping-cart');
+                removeBgColor();
+                setColor(this);
+              break;
+              case 'Clock':
+                removeContent();
+                setDisplayAndColor('.projects__holders--clock');
+                removeBgColor();
+                setColor(this);
+              break;
+              default:
+              return false;
+              break;
+          }
+        },false);
+    });
+
+
+
 
 })();
 //carousel
@@ -232,7 +236,7 @@ start();
 //skills
 (function(){
     "use strict";
-let skills = document.querySelectorAll('.skills-chart li');
+let skills = document.querySelectorAll('.skills__chartsItem');
 
 skills.forEach(function(el){
     el.addEventListener('mouseover', function(ev){

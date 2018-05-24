@@ -9,6 +9,11 @@
     text-align: center;
     cursor: pointer;
 }
+@media(max-width: 600px){
+    .projects__holderCarousel {
+        height: 300px;
+    }
+}
 .projects__left-arrow, .projects__holderCarouselImage, .projects__right-arrow {
     float: left;
     height: auto;
