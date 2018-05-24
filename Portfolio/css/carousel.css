@@ -1,41 +1,41 @@
 * {
     box-sizing: border-box;
 }
-.holders-carousel {
+.projects__holderCarousel {
    position: relative;
 }
-.holders-carousel div {
+.projects__holderCarousel, .projects__left-arrow, .projects__right-arrow {
+    height: 650px;
+    text-align: center;
+    cursor: pointer;
+}
+.projects__left-arrow, .projects__holderCarouselImage, .projects__right-arrow {
     float: left;
     height: auto;
 }
-.holders-carousel .left-arrow,.holders-carousel .right-arrow  {
-   height: 650px;
-   text-align: center;
-   cursor: pointer;
-}
-.holders-carousel .left-arrow i,.holders-carousel .right-arrow i {
+.projects__arrow--item {
   margin-top: 300px;
   font-size: 1.8em;
 }
-.carousel-img-content{
+.projects__holderCarouselImageContent{
     height: 320px !important;
     position: relative;
 }
-.carousel-img-content .project-description {
+.projects__Description {
     cursor: zoom-in;
 }
-.holders-carousel-img .circles {
-    margin: 10% 0 0 46%;
+.projects__circles {
+    margin: 10% 0 0 12%;
     outline: none;
 }
-.holders-carousel-img .circles i{
+.projects__circles--icon{
     border-radius: 50%;
     cursor: pointer; 
 }
 .active {
     color: black;
 }
-.carousel-img-content .project-description {
+.projects__Description {
     width: 100%;
     height: 250px;
     position: absolute;
@@ -45,32 +45,32 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-.project-one {
+.projects--one {
     background-image: url(../images/calci.png);
 }
-.project-four {
+.projects--four {
     background-image: url(../images/Djordjije-Logo.png);
 }
-.carousel-img-content a {
+.projects__carousel--anchor {
     position: absolute;
     bottom: -380px;
     text-decoration: none;
     color: rgb(165, 230, 165);
 }
-.carousel-img-content a:first-child {
+.projects__carousel--anchorFirstChild {
     left: 10px;
 }
-.carousel-img-content a > i {
+.projects__carousel--icon {
    margin-right: 5px;
     font-size: 1.2em;
 }
 @media(max-width: 1024px){
-    .carousel-img-content a {
+    .projects__carousel--anchor {
         bottom: -220px;
     }
 }
 @media(max-width: 400px) {
-    .carousel-img-content a:first-child {
+    .projects__carousel--anchorFirstChild {
         left: 0;
     }
 }

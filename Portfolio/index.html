@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--normalize css-->
+    <link rel="stylesheet" href="css/normalize.css">
     <!--header-->
     <link rel="stylesheet" href="css/header.css">
     <!--projects-->
@@ -20,127 +22,137 @@
     
 </head>
 <body>
-<div class="container">
-        <header id="header" class="theme-color">
-            <ul class="logo">
-                    <li><a href="#"><img src="images/Djordjije-Logo.png" alt="logo"></a></li>
+<div class="container"><!--Container-->
+
+        <!--HEADER-->
+        <header id="header" class="header header--color">
+            <ul class="header__logo">
+                    <li class="header__logoItem"><a href="#"><img src="images/Djordjije-Logo.png" alt="logo" class="header__logoImage"></a></li>
             </ul>
-            <li id="hamburger"><i class="fas fa-bars"></i></li>
-            <ul class="tabs">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <li class="header__hamburger"><i class="fas fa-bars"></i></li>
+            <ul class="header__tabs">
+                    <li class="header__tabsItem"><a href="#about" class="header__tabsAnchor">About</a></li>
+                    <li class="header__tabsItem"><a href="#projects" class="header__tabsAnchor">Projects</a></li>
+                    <li class="header__tabsItem"><a href="#skills" class="header__tabsAnchor">Skills</a></li>
+                    <li class="header__tabsItem"><a href="#contact" class="header__tabsAnchor">Contact</a></li>
             </ul>
            
-            <ul class="search-el">
-                    <li>
+            <ul class="header__searchEl">
+                    <li class="header__searchElItem">
                         <form action="">
-                                <div>Search</div>
-                                <input type="text" name="text-searc" class = "theme-color">
-                                <label for="text-searc"><i class="fas fa-search"></i></label>   
+                                <div class="header__searchElDiv">Search</div>
+                                <input type="text" name="text-searc" class = "header__searchElInput header--themeColor">
+                                <label for="text-searc"><i class="fas fa-search header__searchElIcon"></i></label>   
                         </form>
                     </li>
             </ul>
         </header><!--header-->
        
-<div class="dropdown-menu theme-color">
-        <ul class="dropdown ">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="copyright"><a href=""><small>©2018 djordjijem</small></a></li>
+<!--DROPDOWN-->
+<div class="dropMenu dropMenu--color">
+        <ul class="dropMenu__dropdown">
+                <li class="dropMenu__item dropMenu__item--firstChild"><a href="#about" class="dropMenu__anchor">About</a></li>
+                <li class="dropMenu__item"><a href="#projects" class="dropMenu__anchor">Projects</a></li>
+                <li class="dropMenu__item"><a href="#skills" class="dropMenu__anchor">Skills</a></li>
+                <li class="dropMenu__item"><a href="#contact" class="dropMenu__anchor">Contact</a></li>
+                <li class="dropMenu__item dropMenu--copyright"><a href="" class="dropMenu__anchor"><small>©2018 djordjijem</small></a></li>
         </ul>
-</div>
+</div><!--dropdown-->
+
+<!--MAIN-->
 <div class="main">
                 <div class="modal">
-                                <span><i class="fas fa-times"></i></span>
-                               <p>Search Temporarily Disabled</p> 
-                        </div>
+                                <span class="modal__span"><i class="fas fa-times modal__icon"></i></span>
+                               <p class="modal__paragraph">Search Temporarily Disabled</p> 
+                </div><!--modal-->
+
+          <!--ABOUT-->
         <section class="about" id="about">
                 <h1>About</h1>
 
         </section><!--About-->
         <hr>
-        <section class="Projects" id="projects">
-                <h1>Projects</h1>
-                <article>
+        <!--PROJECTS-->
+        <section class="projects" id="projects">
+                <h1 class="projects__tittle">Projects</h1>
+                <article class="projects__article">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, obcaecati numquam? Dolorem exercitationem ratione aperiam praesentium deleniti a sint repellat nulla! Id, laborum tempore? Repellat facilis molestias laborum natus quaerat.</p>
                 </article>
-                <div class="projects-holder col-12">
-                        <div class="tabs-for-projects col-4">
-                <ul>
-                                <li>Real Calculator     </li>
-                                <li>Non-JS UI Components</li>
-                                <li>Other Projects</li>
-                                <li>Forms</li>
-                                <li>Web Component</li>
-                                <li>Shopping Cart</li>
-                                <li>Clock</li>     
-                                </ul>
-                        </div>      <!--tabs-->
-                        <div class="scroll-menu">
-                        <li>Real Calculator     </li>
-                        <li>Non-JS UI Components</li>
-                        <li>Other Projects</li>
-                        <li>Forms</li>
-                        <li>Web Component</li>
-                        <li>Shopping Cart</li>
-                        <li>Clock</li> 
-                        </div>
-        <div class="projects-holder-content col-8">
-                <div class="holders calculator-holder">
-                        <div class="holders-carousel col-12">
-                        <div class="left-arrow col-2">
-                                <i class="fas fa-chevron-left"></i>
-                        </div>
-                        <div class="holders-carousel-img col-8">
-                                <div class="carousel-img-content col-12">
-                                        <div class="project-description project-one">
-                                                <a href="https://djordjijem.github.io/Web-components/calculator/" target="_blank">Project Link</a>
-                                                <a href="https://github.com/djordjijem/Web-components/tree/master/calculator" target="_blank"><i class="fab fa-github"></i>Source</a>
+                <div class="projects__holder col-12">
+                        <div class="projects__tabs col-4">
+                          <ul class="projects__list">
+                                <li class="projects__listItem projects__listItem--firstChild">Real Calculator     </li>
+                                <li class="projects__listItem">Non-JS UI Components</li>
+                                <li class="projects__listItem">Other Projects</li>
+                                <li class="projects__listItem">Forms</li>
+                                <li class="projects__listItem">Web Component</li>
+                                <li class="projects__listItem">Shopping Cart</li>
+                                <li class="projects__listItem">Clock</li>     
+                         </ul>
+                        </div> <!--projects__tabs-->
+                        <div class="projects__scrollMenu">
+                                <li class="projects__scrollItem projects__scrollItem--firstChild">Real Calculator     </li>
+                                <li class="projects__scrollItem">Non-JS UI Components</li>
+                                <li class="projects__scrollItem">Other Projects</li>
+                                <li class="projects__scrollItem">Forms</li>
+                                <li class="projects__scrollItem">Web Component</li>
+                                <li class="projects__scrollItem">Shopping Cart</li>
+                                <li class="projects__scrollItem">Clock</li> 
+                        </div><!--scroll menu-->
+           <div class="projects__holderContent col-8">
+                <div class="projects__holders projects__holders--calculator ">
+                        <div class="projects__holderCarousel col-12">
+                        <div class="projects__left-arrow col-2">
+                                <i class="fas fa-chevron-left projects__arrow--item"></i>
+                        </div><!--left arrow-->
+                        <div class="projects__holderCarouselImage col-8">
+                                <div class="projects__holderCarouselImageContent col-12">
+                                        <div class="projects__Description projects--one">
+                                                <a href="https://djordjijem.github.io/Web-components/calculator/" class="projects__carousel--anchor projects__carousel--anchorFirstChild"target="_blank">Project Link</a>
+                                                <a href="https://github.com/djordjijem/Web-components/tree/master/calculator" class="projects__carousel--anchor"target="_blank"><i class="fab fa-github projects__carousel--icon"></i>Source</a>
                                         </div> 
-                                        <div class="project-description project-two"><span>JavaScript CSS HTML</span></div>
-                                        <div class="project-description project-three">REALLY REALLY COOL CALCULATOR</div>
-                                        <div class="project-description project-four">MYLOGO</div>
+                                        <div class="projects__Description projects--two"><span>JavaScript CSS HTML</span></div>
+                                        <div class="projects__Description projects--three">REALLY REALLY COOL CALCULATOR</div>
+                                        <div class="projects__Description projects--four">MYLOGO</div>
                                 </div>
                                 
-                                <div class="circles">
-                                <i class="far fa-circle circle"></i>
-                                <i class="far fa-circle circle"></i>
-                                <i class="far fa-circle circle"></i>
-                                <i class="far fa-circle circle"></i>
+                                <div class="projects__circles">
+                                <i class="far fa-circle circle projects__circles--icon"></i>
+                                <i class="far fa-circle circle projects__circles--icon"></i>
+                                <i class="far fa-circle circle projects__circles--icon"></i>
+                                <i class="far fa-circle circle projects__circles--icon"></i>
                                 </div>                                       
                         </div><!--holders carousel-->
-                        <div class="right-arrow col-2">
-                                <i class="fas fa-chevron-right"></i>
+                        <div class="projects__right-arrow col-2">
+                                <i class="fas fa-chevron-right projects__arrow--item"></i>
                         </div>
                 </div>
                 </div> <!--calculator holder-->
-                <div class="holders non-JS-Components">non JS</div>
-                <div class="holders other-projects">
+                <div class="projects__holders  projects__holders--non-JS-Components">non JS</div>
+                <div class="projects__holders  projects__holders--other-projects">
                         other
                 </div>
-                <div class="holders forms">
+                <div class="projects__holders  projects__holders--forms">
                         forms
                 </div>
-                <div class="holders web-component">
+                <div class="projects__holders  projects__holders--web-component">
                         web-component
                 </div>
-                <div class="holders shopping-cart">
+                <div class="projects__holders  projects__holders--shopping-cart">
                         cart
                 </div>
-                <div class="holders clock">
+                <div class="projects__holders  projects__holders--clock">
                         clock
                 </div>
-        </div><!--Content-->  
+        </div><!--Projects Holder Content-->  
         
 </div><!--projects-holder-->
 
 
         </section><!--Projects-->
         <hr>
+
+        <!--SKILLS-->
         <section class="skills" id="skills">
                  <h1>Skills</h1>  
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem in labore ipsa saepe modi, cumque deleniti accusamus eaque ex similique? Excepturi nihil alias itaque veniam temporibus maiores error deserunt aut.</p>
@@ -179,18 +191,19 @@
                         </li>
                 </ul>
         </div><!--front end chart-->
-
-        
        
-
-                  
         </section><!--Skills-->
-<hr style="margin-top: 150px;">
+
+     <hr style="margin-top: 150px;">
+
+      <!--CONTACT-->
         <section class="contact">
                 <h1>Contact</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta libero non provident! Doloribus impedit illo, adipisci sequi ratione quo in?</p>
         </section>
 </div><!--Main-->
+
+<!--FOOTER-->
 <footer class="col-12 theme-color">
         <div>(c) 2018 djordjijem</div>
 </footer>

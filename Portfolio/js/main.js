@@ -3,22 +3,21 @@
 (function(){
     "use strict";
    
-let container = document.querySelector('.container');    
-let hamburger = document.getElementById('hamburger');
-let logo = document.querySelector('.logo');
-let dropdown = document.querySelector('.dropdown-menu');
-let count = 1;
-let dropdownList = document.querySelectorAll('.dropdown li');
-let section = document.querySelectorAll('section');
-let searchIcon = document.querySelector('.search-el i');
-let closeModal = document.querySelector('.modal span');
-let main = document.querySelector('.main');
+let container = document.querySelector('.container'), 
+    hamburger = document.querySelector('.header__hamburger'),
+    logo = document.querySelector('.header__logo'),
+    dropdown = document.querySelector('.dropMenu'),
+    count = 1,
+    dropdownList = document.querySelectorAll('.dropMenu__item'),
+    section = document.querySelectorAll('section'),
+    searchIcon = document.querySelector('.header__searchElIcon'),
+    closeModal = document.querySelector('.modal__span'),
+    main = document.querySelector('.main');
 
 function initiateDropdown(marginLeft, width, dropdownMargin, mainMargin){
     logo.style.marginLeft = marginLeft;
     dropdown.style.width = width;
-    dropdown.style.marginLeft = dropdownMargin;
-   
+    dropdown.style.marginLeft = dropdownMargin;  
 }
 function changeIcons(current, content){
     current.innerHTML = '';
@@ -72,8 +71,8 @@ dropdownList.forEach(function (el) {
 (function(){
     "use strict";
 
-var projects_content = document.querySelector('.projects-holder-content');    
-var tabs = document.querySelectorAll('.projects-holder li');
+var projects_content = document.querySelector('.projects__holderContent'),   
+    tabs = document.querySelectorAll('.projects__listItem');
 
 
 function removeBgColor(){
@@ -88,7 +87,7 @@ function setColor(el){
 }
 
 function removeContent(){
-    projects_content.querySelectorAll('.holders').forEach(function(el) {
+    projects_content.querySelectorAll('.projects__holders ').forEach(function(el) {
         el.style.display = 'none';
     });
 }
@@ -102,43 +101,43 @@ tabs.forEach(function(el){
       switch(this.innerText){
           case 'Real Calculator':
             removeContent();
-            setDisplayAndColor('.calculator-holder');
+            setDisplayAndColor('.projects__holders--calculator');
             removeBgColor();
             setColor(this);
           break;
           case 'Non-JS UI Components':
             removeContent();
-            setDisplayAndColor('.non-JS-Components');
+            setDisplayAndColor('.projects__holders--non-JS-Components');
             removeBgColor();
             setColor(this);
           break;
           case 'Other Projects':
             removeContent();
-            setDisplayAndColor('.other-projects');
+            setDisplayAndColor('.projects__holders--other-projects');
             removeBgColor();
             setColor(this);
           break;
           case 'Forms':
             removeContent();
-            setDisplayAndColor('.forms');
+            setDisplayAndColor('.projects__holders--forms');
             removeBgColor();
             setColor(this);
           break;
           case 'Web Component':
             removeContent();
-            setDisplayAndColor('.web-component');
+            setDisplayAndColor('.projects__holders--web-component');
             removeBgColor();
             setColor(this);
           break;
           case 'Shopping Cart':
             removeContent();
-            setDisplayAndColor('.shopping-cart');
+            setDisplayAndColor('.projects__holders--shopping-cart');
             removeBgColor();
             setColor(this);
           break;
           case 'Clock':
             removeContent();
-            setDisplayAndColor('.clock');
+            setDisplayAndColor('.projects__holders--clock');
             removeBgColor();
             setColor(this);
           break;
@@ -154,11 +153,11 @@ tabs.forEach(function(el){
 (function(){
    "use strict";
 
-   let content = document.querySelectorAll('.project-description');
-   let right_arrow = document.querySelector('.right-arrow');
-   let left_arrow = document.querySelector('.left-arrow');
-   let count = 0;
-   let circles = document.querySelectorAll('.circle');
+    let content = document.querySelectorAll('.projects__Description'),
+        right_arrow = document.querySelector('.projects__right-arrow'),
+        left_arrow = document.querySelector('.projects__left-arrow'),
+        count = 0,
+        circles = document.querySelectorAll('.projects__circles--icon');
 
    function clear(){
       content.forEach(function(el){
@@ -224,7 +223,6 @@ circles.forEach(function(el){
            count = 3;
         } 
     },false);
-
 });
 
 start();

@@ -1,3 +1,4 @@
+
 * {
  box-sizing: border-box;
  margin: 0;
@@ -87,16 +88,16 @@ hr {
     z-index: 33;
     display: none;
 }
-.modal span {
+.modal__span {
     position: absolute;
     right: 260px;
     font-size: 3.6em;
     font-weight: 600;
 }
-.modal span:hover {
+.modal__span:hover {
     font-size: 3.8em;
 }
-.modal p {
+.modal__paragraph {
     position: absolute;
     top: 30%;
     left: 40%;
@@ -104,7 +105,7 @@ hr {
     color: #B55894;
 }
 @media(max-width: 1300px) {
-    .modal span {
+    .modal__span {
         position: absolute;
         right: 100px;
     }
@@ -116,11 +117,11 @@ hr {
     
 }
 @media(max-width: 750px){
-    .modal span {
+    .modal__span {
         position: absolute;
         left: 100px;
     }
-    .modal p {
+    .modal__paragraph {
         position: absolute;
         left: 10%;
         font-size: 2em;

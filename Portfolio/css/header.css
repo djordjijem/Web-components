@@ -6,22 +6,23 @@
 .container {
     margin: auto;
 }
-#header {
-    width: 100%;
-    height: auto;
+.header--color {
+    background-color: #B55894;
+}
+.header {
     border-bottom: 7px solid #D273B0;
+    display: flex;
+    height: auto;
     padding-bottom: 0;
     position: relative;
-}
-#header {
-    display: flex;
     justify-content: space-between;
+    width: 100%;
 }
-#header .tabs {
+.header__tabs {
     display: flex;
     width: 50%;
 }
-#header .tabs li {
+.header__tabsItem {
     display: flex;
     flex: 1;
     justify-content: center;
@@ -29,22 +30,25 @@
     font-size: 1.4em;
     margin-top: 7px;
 }
-#header .tabs li a {
+.header__tabsAnchor {
     text-decoration: none;
     color: rgb(238, 222, 222);
 }
-#header .tabs li:hover {
+.header__tabsItem:hover {
     background-color: #D273B0;
     cursor: pointer;
 }
-#header .search-el > li {
+.header__searchElItem {
     margin-right: 30px;
     list-style: none;
 }
-#header .search-el > li div {
+.header__searchElDiv {
     color: rgb(252, 247, 247); 
 }
-#header .search-el > li input {
+.header--themeColor {
+    background-color: #B55894;
+}
+.header__searchElInput {
     border: none;
     border-bottom: 1px solid rgb(230, 223, 223);
     color: rgb(252, 247, 247);
@@ -55,7 +59,7 @@
     font-weight: 600;
     float: none;
 }
-#header .search-el > li i {
+.header__searchElIcon {
     padding: 5px;
     color: rgb(252, 247, 247);
     border: 1px solid rgb(230, 223, 223); 
@@ -64,22 +68,22 @@
     cursor: pointer;
     font-size: 1.4em;
 }
-.logo {
+.header__logo {
     width: 8%;
     transition: 0.8s;
     z-index: 999;
 }
-.logo li {
+.header__logoItem {
     margin-left: 20px;
     padding: 5px;
     width: 80px;
     list-style: none;
 }
-.logo img {
+.header__logoImage {
     width: 170%;
     height: 65px;
 }
-.dropdown-menu {
+.dropMenu {
     height: 100%;
     width: 0;
     overflow-x: hidden;
@@ -89,24 +93,27 @@
     z-index: 1;
     margin-left: -30px;  
 }
-.dropdown {
+.dropMenu--color {
+    background-color: #B55894;
+}
+.dropMenu__dropdown {
     list-style: none;   
     color: white;
     overflow: hidden;
     z-index: 2;
 }
-.dropdown li {
+.dropMenu__item {
     padding: 20px;
 }
-.dropdown li:first-child {
+.dropMenu__item--firstChild {
     margin-top: 100px;
 }
-.dropdown li a {
+.dropMenu__anchor {
     text-decoration: none;
     color: rgb(39, 39, 36);
     font-size: 1.4em;
 }
-#hamburger {
+.header__hamburger {
    list-style: none;
    font-size: 1.9em;
    padding: 20px;
@@ -117,60 +124,60 @@
    align-self: center;
 }
 @media(max-width: 600px){
-    #header { 
+    .header { 
         border-bottom: 0;
         padding-top: 0;
         height: 75px;
        position: static;
     }
-    #header .tabs {
+    .header__tabs {
         display: none;
     }
-    #header .search-el {
+    .header__searchEl {
         display: none;
     }
-    .logo {
+    .header__logo {
         width: 100px;
         margin-left: -140px;
     }
-    .logo li {
+    .header__logoItem {
         width: 60px;
         height: auto;
     }
 }
 @media (max-width: 360px){
-    .logo li {
+    .header__logoItem {
         width: 45px;
         height: auto;
     }
 }
 @media(min-width: 601px){
-    .dropdown-menu, #hamburger {
+    .dropMenu, .header__hamburger {
         display: none;
     }
-    .logo {
+    .header__logo {
         margin-left: 0;
     }
 }
 @media (min-width: 601px) and (max-width: 1024px){
     
-    #header .tabs li {
+    .header__tabsItem {
         font-size: 1.2em;
     }
-    .logo li {
+    .header__logoItem {
         width: 65px;
         height: auto;
     }
-    #header .search-el > li {
+    .header__searchElItem {
         margin-right: -85px;
     }
-    #header .search-el > li input {
+    .header__searchElInput {
         outline: none;
         padding: 2px;
         font-size: 1em;
         width: 45%;
     }
-    #header .search-el > li i {
+    .header__searchElIcon {
         padding: 3px;
         margin-left: 3px;
         cursor: pointer;
@@ -178,21 +185,21 @@
     }
 }
 @media (min-width: 601px) and (max-width: 660px){
-    #header .search-el {
+    .header__searchEl {
         margin-right: -70px;
     }
-    #header .search-el > li input {
+    .header__searchElInput {
         width: 25%;
     }
 }
 @media (min-width: 1024px) and (max-width: 1124px){
-    #header .tabs {
+    .header__tabs {
         margin-left: 50px;
     }
-    #header .tabs li {
+    .header__tabsItem {
         font-size: 1.3em;
     }
 }
-.copyrigth {
+.dropMenu--copyright {
     margin-top: 50px;
 }
