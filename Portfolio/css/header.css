@@ -45,9 +45,6 @@
 .header__searchElDiv {
     color: rgb(252, 247, 247); 
 }
-.header--themeColor {
-    background-color: #B55894;
-}
 .header__searchElInput {
     border: none;
     border-bottom: 1px solid rgb(230, 223, 223);
@@ -145,20 +142,8 @@
         height: auto;
     }
 }
-@media (max-width: 360px){
-    .header__logoItem {
-        width: 45px;
-        height: auto;
-    }
-}
-@media(min-width: 601px){
-    .dropMenu, .header__hamburger {
-        display: none;
-    }
-    .header__logo {
-        margin-left: 0;
-    }
-}
+
+
 @media (min-width: 601px) and (max-width: 1024px){
     
     .header__tabsItem {
@@ -202,4 +187,12 @@
 }
 .dropMenu--copyright {
     margin-top: 50px;
+}
+@media(min-width: 601px){
+    .dropMenu, .header__hamburger {
+        display: none;
+    }
+    .header__logo {
+        margin-left: 0;
+    }
 }

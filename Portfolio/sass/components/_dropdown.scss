@@ -1,0 +1,33 @@
+.dropMenu {
+    height: 100%;
+    width: 0;
+    overflow-x: hidden;
+    transition: 0.7s;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    margin-left: -30px;
+    &--color {
+        background-color: $theme-color;
+    }  
+    &__dropdown {
+        list-style: none;   
+        color: white;
+        overflow: hidden;
+        z-index: 2;
+    }
+    &__item {
+        padding: 20px;
+        &--firstChild {
+            margin-top: 100px;
+        }
+    }
+    &__anchor {
+        text-decoration: none;
+        color: rgb(39, 39, 36);
+        font-size: 1.4em;
+    }
+    &--copyright {
+        margin-top: 50px;
+    }
+}

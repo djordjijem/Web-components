@@ -1,0 +1,126 @@
+.projects {
+    &__holder {
+        height: 650px;
+        margin-top: 50px;
+        position: relative;
+        }
+        &__tabs {
+            height: 100%;
+            float: left;
+        }
+        &__list {
+            list-style: none;
+            float: left;
+        }
+        &__listItem {
+            padding: 25px;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding-right: 70px;
+            margin-left: 40px;
+            overflow-x: hidden;
+            position: relative;
+            &--firstChild{
+                background-color: rgb(76, 74, 74);
+                color: #D961AD;
+            }
+          }
+          &__holderContent {
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        &__holders {
+            background-color: rgb(76, 74, 74);
+            display: none;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            &--calculator {
+                display: block;
+            }
+        }
+        &__scrollMenu {
+            width: 70%;
+            background-color: rgb(76, 74, 74);
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px;
+            white-space: nowrap;
+            list-style: none;
+            position: absolute;
+            bottom: 71px;
+            left: 10%;
+        }
+        &__scrollItem {
+            display: inline-block;
+            margin-right: 15px;
+            margin-left: 15px;
+            font-size: 1.2em;
+            cursor: pointer; 
+            &--firstChild {
+                background-color: rgb(76, 74, 74);
+                color: #D961AD;
+            }
+        }
+}
+
+
+@media(min-width: 1024px) and (max-width: 1300px){
+    .projects {
+        &__listItem {
+            padding: 20px;
+            font-size: 1.3em;
+            margin-left: 30px;
+        }
+    }
+  }
+  @media(min-width: 601px) and (max-width: 900px){
+      .projects{
+        &__listItem {
+            padding: 10px;
+            font-size: 1.1em;
+           
+        }
+      }
+  }
+  @media(min-width: 901px) and (max-width: 1023px){
+      .projects{
+        &__listItem {
+            padding: 15px;
+            font-size: 1.2em;
+            margin-left: 25px;
+        }
+      }
+  }
+  @media(max-width:1024px){
+      .projects {
+        &__holderContent {
+            height: 500px;  
+         }
+      }
+   
+}
+@media(max-width: 601px){
+    .projects {
+        &__holderContent {
+            width: 120% !important;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: -40px;
+        }
+        &__list {
+            display: none;
+        }
+    } 
+}
+@media(min-width: 601px){
+    .projects {
+        &__scrollMenu {
+            display: none;
+        }
+    }
+}

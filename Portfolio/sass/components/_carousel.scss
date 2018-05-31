@@ -1,0 +1,83 @@
+.projects {
+    &__holderCarousel {
+        position: relative;
+     }
+     &__holderCarousel, &__left-arrow, &__right-arrow {
+        height: 650px;
+        text-align: center;
+        cursor: pointer;
+    }
+    &__left-arrow, &__holderCarouselImage, &__right-arrow {
+        float: left;
+        height: auto;
+    }
+    &__arrow--item {
+        margin-top: 300px;
+        font-size: 1.8em;
+      }
+      &__holderCarouselImageContent{
+        height: 320px !important;
+        position: relative;
+    }
+    &__Description {
+        cursor: zoom-in;
+    }
+    &__circles {
+        margin: 10% 0 0 12%;
+        outline: none;
+        &--icon {
+            border-radius: 50%;
+            cursor: pointer; 
+        }
+    }
+    &__Description {
+        width: 100%;
+        height: 250px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    &--one {
+        background-image: url(../images/calci.png);
+    }
+    &--four {
+        background-image: url(../images/Djordjije-Logo.png);
+    }
+    &__carousel--anchor {
+        position: absolute;
+        bottom: -380px;
+        text-decoration: none;
+        color: rgb(165, 230, 165);
+        &FirstChild{
+            left: 10px;
+        }
+    }
+    &__carousel--icon {
+        margin-right: 5px;
+         font-size: 1.2em;
+     }
+}
+@media(max-width: 600px){
+    .projects {
+        &__holderCarousel {
+            height: 300px;
+        }
+    }
+}
+@media(max-width: 1024px){
+    .projects {
+        &__carousel--anchor {
+            bottom: -220px;
+        }
+    } 
+}
+@media(max-width: 400px) {
+    .projects {
+        &__carousel--anchorFirstChild {
+            left: 0;
+        }
+    } 
+}

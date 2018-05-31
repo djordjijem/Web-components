@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   }
+   body {
+       position: relative;
+   }
+   .theme-color {
+       background-color: $theme-color;
+   }
+   
+   h1 {
+       margin: 20px;
+   }
+   section {
+       padding: 20px;
+       margin: 50px;
+   }
+   hr {
+       opacity: 0.5;
+   }
+ 
+  
+   

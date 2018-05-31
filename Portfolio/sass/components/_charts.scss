@@ -1,0 +1,146 @@
+.skills {
+    &__chart {
+        width: 80%;
+        height: 20px;
+        margin: 20px auto;
+    
+    }
+    &__chartFront {
+        background-color: #FB5E5D;
+        height: 100%;
+        float: left;
+    }
+    &__chartBack {
+        background-color: #4A6FEB;
+        height: 100%;
+        float: left;
+    }
+    &__chartSpan {
+        color: white;
+    }
+    &__chartFrontSpan {
+        float: left;
+    }
+    &__chartBackSpan {
+        float: right;
+    }
+    &__frontEndChart {
+        height: 300px;
+        border-bottom: 1px solid rgb(167, 163, 163);
+        position: relative;
+    }
+    &__frontEndHeading {
+        margin: 50px;
+        color: #FB5E5D;
+    }
+    &__expertiseLevel {
+        float: left;
+        list-style: none;
+        height: 250px;
+    }
+    &__frontItem {
+        text-decoration: none;
+        padding: 15px;
+        &--firstChild {
+            margin-top: 10px;
+        }
+    }
+    &__charts {
+        display: flex;
+        margin-top: 49px;
+     }
+     &__chartsItem {
+        flex: 1;
+        margin: 10px;
+        height: 100px;
+        width: 10px;
+        margin-top: 79px;
+        position: relative;
+    }
+    &__orange {
+        background-color: orange;
+        height: 140px;
+        margin-top: 39px;
+    }
+    &__blue {
+        background-color: blue;
+    }
+    &__red {
+        background-color: red;
+    }
+    &__green {
+        background-color: green;
+        height: 70px;
+        margin-top: 109px;
+    }
+    &__yellow {
+        background-color: yellow;
+        height: 60px;
+        margin-top: 118px;
+    }
+    &__chartParagraph {
+        position: absolute;
+        bottom: -40px;
+        transform: rotate(45deg);
+    } 
+    &__popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 113%;
+        left: 50%;
+        margin-left: -80px;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+    }   
+    &__charts .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+   
+}
+
+@media(max-width: 1300px){
+    .skills {
+       &__frontEndChart {
+            width: 70% !important;
+        }
+    }
+}
+@media(max-width: 900px){
+    .skills {
+        &__frontEndChart {
+            width: 80% !important;
+        }
+    }
+}
+@media(max-width: 600px){
+    .skills {
+        &__frontEndChart {
+            width: 100% !important;
+        }
+    }
+}
+@media(max-width: 500px){
+    .skills {
+        &__frontEndChart {
+            width: 120% !important;
+            margin-left: -40px;
+        }
+    }
+}

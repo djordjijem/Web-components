@@ -3,7 +3,7 @@
 (function(){
     "use strict";
    
-let container = document.querySelector('.container'), 
+var container = document.querySelector('.container'), 
     hamburger = document.querySelector('.header__hamburger'),
     logo = document.querySelector('.header__logo'),
     dropdown = document.querySelector('.dropMenu'),
@@ -12,7 +12,8 @@ let container = document.querySelector('.container'),
     section = document.querySelectorAll('section'),
     searchIcon = document.querySelector('.header__searchElIcon'),
     closeModal = document.querySelector('.modal__span'),
-    main = document.querySelector('.main');
+    main = document.querySelector('.main'),
+    input = document.querySelector('.header__searchEl input');
 
 function initiateDropdown(marginLeft, width, dropdownMargin, mainMargin){
     logo.style.marginLeft = marginLeft;
@@ -32,7 +33,7 @@ function changeIcons(current, content){
                el.style.marginLeft = '110px';
                el.style.transition = '0.6s';
            });
-           changeIcons(this, '<i class="fas fa-times"></i>')
+           changeIcons(this, '<i class="fas fa-times"></i>');
         }else {
            count = 1;
            initiateDropdown('-130px', '0', '-10px');
@@ -51,8 +52,8 @@ dropdownList.forEach(function (el) {
             el.style.marginLeft = '50px';
         });
         changeIcons(hamburger, '<i class="fas fa-bars"></i>');
-    })
-  })
+    });
+  });
 
    searchIcon.addEventListener('click', function(event){
      document.querySelector('.modal').style.display = 'block';
@@ -64,6 +65,14 @@ dropdownList.forEach(function (el) {
   window.addEventListener('scroll', function(e){
       dropdown.style.top = '0';
   });
+  input.addEventListener('click',function(ev){
+      document.querySelector('.header__searchElDiv p').style.fontSize = '1em';
+      document.querySelector('.header__searchElDiv p').style.transition = '0.2s';
+      ev.stopImmediatePropagation();
+  });
+  window.addEventListener('click',function(ev){
+    document.querySelector('.header__searchElDiv p').style.fontSize = '1.4em';
+});
 
 })();
 
@@ -83,7 +92,7 @@ function removeBgColor(){
     });
 }
 function setColor(el){
-    el.style.backgroundColor = 'rgb(76, 74, 74,0.9)';
+    el.style.backgroundColor = 'rgb(76, 74, 74)';
     el.style.color = '#D961AD';
 }
 
@@ -143,7 +152,6 @@ function setDisplayAndColor(holder){
                 setColor(this);
               break;
               default:
-              return false;
               break;
           }
         },false);
@@ -157,7 +165,7 @@ function setDisplayAndColor(holder){
 (function(){
    "use strict";
 
-    let content = document.querySelectorAll('.projects__Description'),
+    var content = document.querySelectorAll('.projects__Description'),
         right_arrow = document.querySelector('.projects__right-arrow'),
         left_arrow = document.querySelector('.projects__left-arrow'),
         count = 0,
@@ -169,7 +177,7 @@ function setDisplayAndColor(holder){
     });
     circles.forEach(function (el) {
         el.style.backgroundColor = 'inherit';
-      })
+      });
    }
    function start(){
     clear();
@@ -236,15 +244,15 @@ start();
 //skills
 (function(){
     "use strict";
-let skills = document.querySelectorAll('.skills__chartsItem');
+var skills = document.querySelectorAll('.skills__chartsItem');
 
 skills.forEach(function(el){
     el.addEventListener('mouseover', function(ev){
         this.children[1].classList.toggle('show');
-    },false)
+    },false);
     el.addEventListener('mouseleave', function(ev){
         this.children[1].classList.toggle('show');
-    },false)
+    },false);
 });
 
 })();
