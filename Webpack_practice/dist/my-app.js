@@ -86,6 +86,28 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/webpack/buildin/harmony-module.js":
+/*!*******************************************!*\
+  !*** (webpack)/buildin/harmony-module.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
+
+/***/ }),
+
+/***/ "./src/css/module_a.css":
+/*!******************************!*\
+  !*** ./src/css/module_a.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/css/module_a.css?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -93,7 +115,19 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("let moduleA = __webpack_require__(/*! module_a */ \"./src/modules/module_a.js\");\r\n\r\ndocument.querySelector('body').addEventListener('mouseover', function(ev){\r\n    console.log('aaaa');\r\n})\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("let moduleA = __webpack_require__(/*! module_a */ \"./src/modules/module_a.js\");\nlet css = __webpack_require__(/*! ./css/module_a.css */ \"./src/css/module_a.css\");\n\nmoduleA();\n[1, 2, 3].forEach(item => console.log(item));\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/logger.js":
+/*!*******************************!*\
+  !*** ./src/modules/logger.js ***!
+  \*******************************/
+/*! exports provided: dev, prod */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"dev\", function() { return dev; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"prod\", function() { return prod; });\nfunction dev(type, message) {\n    console[type](message);\n}\nfunction prod(url, message) {\n    let xhr = new XMLHttpRequest();\n    xhr.open('POST', url);\n    xhr.send(JSON.stringify({ data: message }));\n}\n\n\n//# sourceURL=webpack:///./src/modules/logger.js?");
 
 /***/ }),
 
@@ -101,10 +135,11 @@ eval("let moduleA = __webpack_require__(/*! module_a */ \"./src/modules/module_a
 /*!*********************************!*\
   !*** ./src/modules/module_a.js ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("module.exports = function moduleA(){\r\n    console.log('module_a is loaded');\r\n}\n\n//# sourceURL=webpack:///./src/modules/module_a.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! logger */ \"./src/modules/logger.js\");\n\n\n\nmodule.exports = function moduleA() {\n    logger.dev('module_a is importing logger.dev f');\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/modules/module_a.js?");
 
 /***/ })
 

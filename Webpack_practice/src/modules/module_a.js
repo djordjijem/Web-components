@@ -1,3 +1,6 @@
+
+import logger from 'logger';
+
 module.exports = function moduleA(){
-    console.log('module_a is loaded');
+    logger.dev('module_a is importing logger.dev f');
 }

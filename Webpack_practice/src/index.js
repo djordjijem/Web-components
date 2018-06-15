@@ -1,3 +1,6 @@
 let moduleA = require('module_a');
+let css = require('./css/module_a.css');
 
-console.log('aaaa');
+
+moduleA();
+[1, 2, 3].forEach(item => console.log(item));
