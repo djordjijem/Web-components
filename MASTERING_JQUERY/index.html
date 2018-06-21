@@ -9,21 +9,45 @@
     
 </head>
 <body>
-<div class="score-board">
-  <div class="scores my-score"><span>me</span><span class="res"></span></div>
-  <div class="scores computer-score"><span>computer</span><span class="res lose-res"></span></div>
-</div>
-<div class="container">
-  <div class="box box-1 box-left box-top"></div>
-  <div class="box box-1 box-top"></div>
-  <div class="box box-1 box-right box-top"></div>
-  <div class="box box-2 box-left"></div>
-  <div class="box box-2"></div>
-  <div class="box box-2 box-right"></div>
-  <div class="box box-3 box-left box-bottom"></div>
-  <div class="box box-3 box-bottom"></div>
-  <div class="box box-3 box-right box-bottom"></div>
-</div>
+      <div class="welcome-screen">
+        <div class="welcome-screen-container">
+            <span>Welcome!</span>
+            <h1>TicTacToe Game</h2>
+            <a href="#" class="play_vs_computer">Play VS Computer</a>
+            <a href="#" class="play_vs_human">Play VS Human</a>
+        </div>
+      
+    </div>
+      <div class="computer-screen">
+          <a href="#" class="hard">Hard</a>
+          <a href="#" class="easy">Easy</a>
+          <a href="#" class="back">Back</a>
+      </div>
+      <div class="human-screen">
+        <span>Coming soon!</span>
+        <a href="#" class="back">Back</a>
+      </div>
+    <div class="score-board">
+      <div class="scores my-score"><span>me</span><span class="res my-res"></span></div>
+      <div class="scores computer-score"><span>computer</span><span class="res lose-res"></span></div>
+    </div>
+    <div class="container">
+      <div class="box box-1 box-left box-top 01"></div>
+      <div class="box box-1 box-top 02"></div>
+      <div class="box box-1 box-right box-top 03"></div>
+      <div class="box box-2 box-left 04"></div>
+      <div class="box box-2 05 "></div>
+      <div class="box box-2 box-right 06"></div>
+      <div class="box box-3 box-left box-bottom 07"></div>
+      <div class="box box-3 box-bottom 08"></div>
+      <div class="box box-3 box-right box-bottom 09"></div>
+    </div>
+    <div class="restart">
+      <span>Restart</span>
+    </div>
+    <div class="next">
+      <span>Continue</span>
+    </div>
 
 
 
@@ -32,6 +56,8 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="game.js"></script> 
+    <script src="welcome_screen.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
